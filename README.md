@@ -59,6 +59,19 @@ Taxonomy of Colour Maps according to brightness
 ![](600.png "Rainbow gradient ( colormap)")  
 ![](0.png "RGB profiles of the rainbow colormap")  
 
+Compare with [gnuplot file](https://commons.wikimedia.org/wiki/File:Gnuplot_HSV_gradient.png)  
+
+![](Gnuplot HSV gradient.png "RGB profiles and image of the HSV gradient made with gnuplot")  
+
+It looks similar.
+
+Features of rainbow gradient:
+* non monotone ( see black curve) 
+* complex = consist of 6 monotone segments
+
+
+
+
   
 ## Linas colormap
 ![](601.png "Linas gradient ( colormap)")  
