@@ -2,8 +2,9 @@
 
 
 # gradient forms:
-* table
+* data ( numbers )
   * array of 3 values ( RGB)
+  * csv or text file with data ( 3 columns)
 * function ( 3 transfer functions) = colour map 
 * image
   * stripe of colors
@@ -70,12 +71,99 @@ Features of rainbow gradient:
 * complex = consist of 6 monotone segments
 
 
+```c
+/* 
+
+based on Delphi function by Witold J.Janik  
+https://commons.wikimedia.org/wiki/File:HSV-RGB-comparison.svg 
+
+input : position
+output: array c = RGB color 
+ */
+void GiveRainbowColor(double position, unsigned char c[])
+{
+  	unsigned char nmax=6; /* number of color segments */
+  	double m=nmax* position;
+  
+  	int n=(int)m; // integer of m
+  
+  	double f=m-n;  // fraction of m
+  	unsigned char t=(int)(f*255);
+  	
+  	/* if position > 1 then we have repetition of colors it maybe useful    */
+      
+	if (position>1.0){if (position-(int)position==0.0)position=1.0; else position=position-(int)position;}
+
+  	// gradient with 6 segments
+	switch( n){
+   		case 0: { c[0] = 255; 		c[1] = t; 	c[2] = 0; 	break; };
+   		case 1: { c[0] = 255 -t;	c[1] = 255;	c[2] = 0; 	break; };
+   		case 2: { c[0] = 0;		c[1] = 255;	c[2] = t; 	break; };
+   		case 3: { c[0] = 0;		c[1] = 255 -t; 	c[2] = 255;	break; };
+   		case 4: { c[0] = t;		c[1] = 0;	c[2] = 255;	break; };
+   		case 5: { c[0] = 255;		c[1] = 0;	c[2] = 255 -t;	break; };
+   		default:{ c[0] = 255;		c[1] = 0;	c[2] = 0;	break; };
+	}; // case
+}
+```
+
+
 
 
   
 ## Linas colormap
 ![](601.png "Linas gradient ( colormap)")  
 ![](1.png "RGB profiles of the Linas colormap")  
+
+
+>Your new colormap is different and ugly-ish. The line between red-and-yellow is much much worse than before.  the red-yellow discontinuity is ... confusing, annoying. .. to me, at least. Linas
+
+Features of Linas gradient:
+* non monotone ( see black curve) 
+* complex = consist of 4 monotone segments
+* the red-yellow discontinuity can be seen as a [jump discontinuity](https://en.wikipedia.org/wiki/Classification_of_discontinuities#Jump_discontinuity) of black curve at gradient position 0.8
+
+```c
+void GiveLinasColor(double position ,  unsigned char c[])
+{
+  /* based on the code by Linas Vepstas January 16 1994 : void make_cmap (void) */
+
+   
+  int i;
+  int iMax = 239;
+  i=(int)(iMax-1)*position;  
+  c[0] = c[1] = c[2] = 0; /* set up a default look up table */
+  
+  
+  // gradient with 4 segments 
+  /* ramp from black to blue */
+  if (i<60) {
+    c[0] = 0;
+    c[1] = 0;
+    c[2] = (unsigned char) i*3;
+  }
+  /* ramp down from blue, up to green */
+  if (i>=60 && i<120) {
+    c[0] = 0;
+    c[1] = (unsigned char) (i-60)*3;
+    c[2] = (unsigned char) (120-i)*3;
+  }
+  /* ramp from green to yellow */
+  if (i >=120 && i<180) {
+    /* vlt[i].r = (char) (((i-120)*7) / 2); */
+    c[0] = (unsigned char) (210 - (7*(180-i)*(180-i)) / 120);
+    c[1] = (unsigned char) (210 -i/4);
+    c[2] = 0;
+  }
+  /* ramp from yellow to red (pink) */
+  if (i>=180 && i<iMax) {
+    c[0] = (unsigned char) (210 + (3*(i-180))/4);
+    c[1] = (unsigned char) (510 - 2*i);
+    c[2] = (unsigned char) (i-180)/3;
+  }
+}
+
+```
 
 
 Examples of use: [Linas art gallery - my version of Linas programs](https://gitlab.com/adammajewski/LinasArtGallery_MandelbrotSet)
@@ -106,6 +194,17 @@ Examples of use: [Linas art gallery - my version of Linas programs](https://gitl
 ## Green colormap
 ![](607.png "Green gradient ( colormap)")  
 ![](7.png "RGB profiles of the Green colormap")  
+
+
+
+# Conversion between gradient types
+
+## How to convert data to the function ( how to fit curve to the data)?
+* Polynomial Regression 
+  * [polysolve by P. Lutus](https://arachnoid.com/polysolve/)- online tool
+
+
+
 
 # Links
 
