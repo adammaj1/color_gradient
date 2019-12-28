@@ -45,19 +45,51 @@ Taxonomy of Colour Maps according to brightness
   * cyclic
   
   
-## Examples
+# Examples
+* Rainbow = 0
+* Linas = 1
+* Magma = 2
+* GrayL = 3
+* GrayNL2 = 4
+* GrayNL3 = 5
+* GraySqrt = 6
+* Green = 7
+
+## Rainbow colormap
 ![](600.png "Rainbow gradient ( colormap)")  
 ![](0.png "RGB profiles of the rainbow colormap")  
 
   
-  
-  
-  
-  
+## Linas colormap
+![](601.png "Linas gradient ( colormap)")  
+![](1.png "RGB profiles of the Linas colormap")  
+
+    
+    
+## Magma colormap
+![](602.png "Magma gradient ( colormap)")  
+![](2.png "RGB profiles of the Magma colormap")    
   
 
+## GrayL colormap
+![](603.png "GrayL gradient ( colormap)")  
+![](3.png "RGB profiles of the GrayL colormap")    
 
+## GrayNL2 colormap
+![](604.png "Linas gradient ( colormap)")  
+![](4.png "RGB profiles of the Linas colormap")  
 
+## GrayNL3 colormap
+![](605.png "GrayNL3 gradient ( colormap)")  
+![](5.png "RGB profiles of the GrayNL3 colormap")  
+
+## GraySqrt colormap
+![](606.png "GraySqrt gradient ( colormap)")  
+![](6.png "RGB profiles of the GraySqrt colormap")  
+
+## Green colormap
+![](607.png "Green gradient ( colormap)")  
+![](7.png "RGB profiles of the Green colormap")  
 
 # Links
 
