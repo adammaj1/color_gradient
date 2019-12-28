@@ -77,6 +77,9 @@ Features of rainbow gradient:
 ![](601.png "Linas gradient ( colormap)")  
 ![](1.png "RGB profiles of the Linas colormap")  
 
+
+Examples of use: [Linas art gallery - my version of Linas programs](https://gitlab.com/adammajewski/LinasArtGallery_MandelbrotSet)
+
     
     
 ## Magma colormap
