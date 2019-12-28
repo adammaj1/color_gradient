@@ -61,7 +61,7 @@ Taxonomy of Colour Maps according to brightness
 
 Compare with [gnuplot file](https://commons.wikimedia.org/wiki/File:Gnuplot_HSV_gradient.png)  
 
-![](Gnuplot HSV gradient.png "RGB profiles and image of the HSV gradient made with gnuplot")  
+![](Gnuplot_HSV_gradient.png "RGB profiles and image of the HSV gradient made with gnuplot")  
 
 It looks similar.
 
