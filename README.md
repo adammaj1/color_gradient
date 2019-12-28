@@ -46,7 +46,8 @@ Taxonomy of Colour Maps according to brightness
   
   
 ## Examples
-
+![](600.png "Rainbow gradient ( colormap)")  
+![](0.png "RGB profiles of the rainbow colormap")  
 
   
   
