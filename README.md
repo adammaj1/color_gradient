@@ -1,4 +1,63 @@
 
+
+
+# gradient forms:
+* table
+  * array of 3 values ( RGB)
+* function ( 3 transfer functions) = colour map 
+* image
+  * stripe of colors
+  * diagram of the function
+  * CLUT image file
+    * [imagemagic](https://imagemagick.org/script/command-line-options.php#clut): image is ordinarily a gradient image containing the histogram mapping of how each channel should be modified. Typically it is a either a single row or column image of replacement color values. If larger than a single row or column, values are taken from a diagonal line from top-left to bottom-right corners.
+    * [gimp](https://docs.gimp.org/2.10/en/plug-in-gradmap.html)
+    * [gmic](https://gmic.eu/color_presets/index.shtml)
+    * [darktable](https://www.darktable.org/2019/05/New%20module-lut3d/)
+
+
+What should and what should not do colrmap in scintific visualisation
+* ["Many colour maps provided by vendors have highly uneven perceptual contrast over their range. Colour maps may have points of locally high colour contrast leading to the perception of false anomalies in your data when there is none. Conversely colour maps may also have 'flat spots' of low perceptual contrast that prevent you from seeing features in the data."](https://peterkovesi.com/projects/colourmaps/)
+* ["both obfuscate the data with artifacts that are not in the data and hide important features that are in the data"](http://www.kennethmoreland.com/color-advice/BadColorMaps.pdf) 
+
+
+
+# Taxonomy of color gradients
+
+
+[Taxonomy of Colour Maps by Peter Kovesi](http://arxiv.org/abs/1509.03700)
+* linear : are intended for general use and have colour lightness values that increase or decrease linearly over the colour map's range
+* diverging = ratio, bipolar or double-ended color maps 
+* rainbow
+* cyclic
+* isoluminant : constant lightness and low contrast colour maps can be useful when displaying data with [relief shading](https://en.wikipedia.org/wiki/Terrain_cartography#Shaded_relief)
+
+
+Taxonomy of Colour Maps according to brightness
+* simple 
+  * [monotone ( monotonic)](https://en.wikipedia.org/wiki/Monotonic_function) with monotonic brightness
+    * linear  = have colour lightness values that increase or decrease linearly over the colour map's range
+    * nonlinear
+  * isoluminant
+  * non monotone 
+    * diverging = [is a double-ended map containing colors with different hues at each end and meeting with a bright neutral color in the middle. Diverging color maps are traditionally designed for displaying scalars that have a value of special significance in the middle (such as sea level for elevation or the freezing point for temperature).](http://www.kennethmoreland.com/color-advice/BadColorMaps.pdf)
+    * rainbow = should not be used in scientific visualisation
+* complex
+  * cyclic
+  
+  
+## Examples
+
+
+  
+  
+  
+  
+  
+  
+
+
+
+
 # Links
 
 ## gnuplot
@@ -16,8 +75,12 @@
 
 ## People
 * [Kenneth Moreland](http://www.kennethmoreland.com/)
+  * [BadColorMaps](http://www.kennethmoreland.com/color-advice/BadColorMaps.pdf)
+  * [Diverging Color Maps for Scientific Visualization](http://www.kennethmoreland.com/color-maps/)
 * [Colin Ware](https://ccom.unh.edu/vislab/colin_ware.html)
 * [Peter Kovesi](https://www.peterkovesi.com/)
+  * [Perceptually Uniform Colour Maps](https://peterkovesi.com/projects/colourmaps/)
+  * [matlab functions](https://www.peterkovesi.com/matlabfns/index.html#colour)
 ## www
 * [khan academy:  color science by Pixar](https://www.khanacademy.org/partner-content/pixar/color)
 
@@ -97,31 +160,6 @@ icvBGRx2Lab_32f_CnC3R( const float* src, int srcstep, float* dst, int dststep,
 }
 ```
 
-
-
-
-
-
-# gradient forms:
-* table
-  * array of 3 values ( RGB)
-* function ( 3 transfer functions) = colour map 
-* image
-  * stripe of colors
-  * diagram of the function
-  * [CLUT image](https://imagemagick.org/script/command-line-options.php#clut): image is ordinarily a gradient image containing the histogram mapping of how each channel should be modified. Typically it is a either a single row or column image of replacement color values. If larger than a single row or column, values are taken from a diagonal line from top-left to bottom-right corners.
-
-
-
-# Taxonomy of color gradients
-
-
-(A Taxonomy of Colour Maps by Peter Kovesi)[http://arxiv.org/abs/1509.03700]
-* linear : are intended for general use and have colour lightness values that increase or decrease linearly over the colour map's range
-* diverging
-* rainbow
-* cyclic
-* isoluminant
 
 
 
