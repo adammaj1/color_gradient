@@ -1,14 +1,17 @@
 
 # Links
-* (gnuplot demo script: pm3dcolors.dem)[http://gnuplot.sourceforge.net/demo/pm3dcolors.html]
-* https://github.com/Gnuplotting/gnuplot-palettes
-* http://www-personal.umich.edu/~mejn/computational-physics/colormaps.py
+* [gnuplot demo script: pm3dcolors.dem](http://gnuplot.sourceforge.net/demo/pm3dcolors.html)
+* [gnuplot palletes](https://github.com/Gnuplotting/gnuplot-palettes)
+## python colormaps
+* [python colormaps](http://www-personal.umich.edu/~mejn/computational-physics/colormaps.py)
 * https://gitlab.kitware.com/paraview/paraview/blob/master/Wrapping%2FPython%2Fparaview%2F_colorMaps.py
 * https://github.com/BIDS/colormap/blob/master/colormaps.py
 * https://sciviscolor.org/resources/
+## People
 * (Kenneth Moreland)[http://www.kennethmoreland.com/]
 * (Colin Ware)[https://ccom.unh.edu/vislab/colin_ware.html]
 * (Peter Kovesi)[https://www.peterkovesi.com/]
+## www
 * (khan academy:  color science by Pixar)[https://www.khanacademy.org/partner-content/pixar/color]
 
 ## Lightness
@@ -28,6 +31,7 @@
 * image
   * stripe of colors
   * diagram of the function
+  * [CLUT image](https://imagemagick.org/script/command-line-options.php#clut): image is ordinarily a gradient image containing the histogram mapping of how each channel should be modified. Typically it is a either a single row or column image of replacement color values. If larger than a single row or column, values are taken from a diagonal line from top-left to bottom-right corners.
 
 
 
