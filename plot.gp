@@ -10,20 +10,22 @@ titles = "Rainbow Linas Magma GrayL GrayNL2 GrayNL3 GraySqrt Green"
 
 
 
-# remove legend
-unset key 
+#  legend
+set key inside bottom center horizontal
+set key horizontal 
+set key font ",8"
 
 # remove upper and right axis
 set border 3 back 
-set xtics nomirror
+set xtics nomirror out
 set ytics nomirror
 
 
 set xlabel "gradient position"
 set ylabel "color intensity" 
 
-
-set yrange [-0.1:1.1]
+# adjust y range to make a space for the legend 
+set yrange [-0.2:1.1]
 
 
 # https://stackoverflow.com/questions/14946530/loop-structure-inside-gnuplot
