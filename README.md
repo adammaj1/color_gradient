@@ -1,27 +1,105 @@
 
 # Links
+
+## gnuplot
 * [gnuplot demo script: pm3dcolors.dem](http://gnuplot.sourceforge.net/demo/pm3dcolors.html)
 * [gnuplot palletes](https://github.com/Gnuplotting/gnuplot-palettes)
+
+## Imagemagic
+* [color gradient](https://imagemagick.org/script/gradient.php)
+
 ## python colormaps
 * [python colormaps](http://www-personal.umich.edu/~mejn/computational-physics/colormaps.py)
-* https://gitlab.kitware.com/paraview/paraview/blob/master/Wrapping%2FPython%2Fparaview%2F_colorMaps.py
-* https://github.com/BIDS/colormap/blob/master/colormaps.py
-* https://sciviscolor.org/resources/
+* [paraview](https://gitlab.kitware.com/paraview/paraview/blob/master/Wrapping%2FPython%2Fparaview%2F_colorMaps.py)
+* [Berkeley Institute for Data Science colormaps](https://github.com/BIDS/colormap/blob/master/colormaps.py)
+* [scivis color](https://sciviscolor.org/resources/)
+
 ## People
-* (Kenneth Moreland)[http://www.kennethmoreland.com/]
-* (Colin Ware)[https://ccom.unh.edu/vislab/colin_ware.html]
-* (Peter Kovesi)[https://www.peterkovesi.com/]
+* [Kenneth Moreland](http://www.kennethmoreland.com/)
+* [Colin Ware](https://ccom.unh.edu/vislab/colin_ware.html)
+* [Peter Kovesi](https://www.peterkovesi.com/)
 ## www
-* (khan academy:  color science by Pixar)[https://www.khanacademy.org/partner-content/pixar/color]
+* [khan academy:  color science by Pixar](https://www.khanacademy.org/partner-content/pixar/color)
 
 ## Lightness
-* (How to Determine Lightness by Reda Lemeden)[https://thoughtbot.com/blog/closer-look-color-lightness#how-to-determine-lightness]
-* (stackoverflow question: formula-to-determine-brightness-of-rgb-color)[https://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color]
+* [How to Determine Lightness by Reda Lemeden](https://thoughtbot.com/blog/closer-look-color-lightness#how-to-determine-lightness)
+* [stackoverflow question: formula-to-determine-brightness-of-rgb-color](https://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color)
 
 
-(Relative luminance is formed as a weighted sum of linear RGB components)[https://en.wikipedia.org/wiki/Luma_(video)]
+[Relative luminance is formed as a weighted sum of linear RGB components](https://en.wikipedia.org/wiki/Luma_(video))
 
-`$Y = 0.2126 R + 0.7152 G + 0.0722 B$`
+$`Y = 0.2126 R + 0.7152 G + 0.0722 B`$
+
+
+
+### Cielab lightness
+* RGB -> XYZ -> Celab
+  * [easyrgb](http://www.easyrgb.com/en/math.php#text2)
+  * in OpenCV source /src/cv/cvcolor.cpp there are functions for color space conversions: icvBGRx2Lab_32f_CnC3R
+  * [python code by Manoj Pandey](https://gist.github.com/manojpandey/f5ece715132c572c80421febebaf66ae)
+
+
+```c++
+// https://github.com/cybertk/opencv/blob/master/opencv/cv/src/cvcolor.cpp
+static CvStatus CV_STDCALL
+icvBGRx2Lab_32f_CnC3R( const float* src, int srcstep, float* dst, int dststep,
+                       CvSize size, int src_cn, int blue_idx )
+{
+    int i;
+    srcstep /= sizeof(src[0]);
+    dststep /= sizeof(dst[0]);
+    srcstep -= size.width*src_cn;
+    size.width *= 3;
+
+    for( ; size.height--; src += srcstep, dst += dststep )
+    {
+        for( i = 0; i < size.width; i += 3, src += src_cn )
+        {
+            float b = src[blue_idx], g = src[1], r = src[2^blue_idx];
+            float x, y, z;
+            float L, a;
+
+            x = b*labXb_32f + g*labXg_32f + r*labXr_32f;
+            y = b*labYb_32f + g*labYg_32f + r*labYr_32f;
+            z = b*labZb_32f + g*labZg_32f + r*labZr_32f;
+
+            if( x > labT_32f )
+                x = cvCbrt(x);
+            else
+                x = x*labSmallScale_32f + labSmallShift_32f;
+
+            if( z > labT_32f )
+                z = cvCbrt(z);
+            else
+                z = z*labSmallScale_32f + labSmallShift_32f;
+
+            if( y > labT_32f )
+            {
+                y = cvCbrt(y);
+                L = y*labLScale_32f - labLShift_32f;
+            }
+            else
+            {
+                L = y*labLScale2_32f;
+                y = y*labSmallScale_32f + labSmallShift_32f;
+            }
+
+            a = 500.f*(x - y);
+            b = 200.f*(y - z);
+
+            dst[i] = L;
+            dst[i+1] = a;
+            dst[i+2] = b;
+        }
+    }
+
+    return CV_OK;
+}
+```
+
+
+
+
 
 
 # gradient forms:
