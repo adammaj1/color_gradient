@@ -93,47 +93,8 @@ Features of rainbow gradient:
 * non monotone ( see black curve) 
 * complex = consist of 6 monotone segments
 
+c function = GiveRainbowColor from p.c file
 
-```c
-/* 
-
-based on Delphi function by Witold J.Janik  
-https://commons.wikimedia.org/wiki/File:HSV-RGB-comparison.svg 
-
-input : position
-output: array c = RGB color 
- */
-void GiveRainbowColor(double position, unsigned char c[])
-{
-  	unsigned char nmax=6; /* number of color segments */
-  	double m=nmax* position;
-  
-  	int n=(int)m; // integer of m
-  
-  	double f=m-n;  // fraction of m
-  	unsigned char t=(int)(f*255);
-  	
-  	/* if position > 1 then we have repetition of colors it maybe useful    */
-      
-	if (position>1.0){if (position-(int)position==0.0)position=1.0; else position=position-(int)position;}
-
-  	// gradient with 6 segments
-	switch( n){
-   		case 0: { c[0] = 255; 		c[1] = t; 	c[2] = 0; 	break; };
-   		case 1: { c[0] = 255 -t;	c[1] = 255;	c[2] = 0; 	break; };
-   		case 2: { c[0] = 0;		c[1] = 255;	c[2] = t; 	break; };
-   		case 3: { c[0] = 0;		c[1] = 255 -t; 	c[2] = 255;	break; };
-   		case 4: { c[0] = t;		c[1] = 0;	c[2] = 255;	break; };
-   		case 5: { c[0] = 255;		c[1] = 0;	c[2] = 255 -t;	break; };
-   		default:{ c[0] = 255;		c[1] = 0;	c[2] = 0;	break; };
-	}; // case
-}
-```
-
-
-
-
-  
 ## Linas colormap
 ![](601.png "Old Linas gradient ( colormap)")  
 ![](1.png "RGB profiles of the old Linas colormap")  
