@@ -1,24 +1,50 @@
 
 
+What should and what should not do coloromap in scintific visualisation?
+* should highlight features of the data
+* should not highlight features that are not in the data but only in the gradient itself
+  * ["Many colour maps provided by vendors have highly uneven perceptual contrast over their range. Colour maps may have points of locally high colour contrast leading to the perception of false anomalies in your data when there is none. Conversely colour maps may also have 'flat spots' of low perceptual contrast that prevent you from seeing features in the data."](https://peterkovesi.com/projects/colourmaps/)
+  * ["both obfuscate the data with artifacts that are not in the data and hide important features that are in the data"](http://www.kennethmoreland.com/color-advice/BadColorMaps.pdf) 
 
-# gradient forms:
-* data ( numbers )
-  * array of 3 values ( RGB)
-  * csv or text file with data ( 3 columns)
-* function ( 3 transfer functions) = colour map 
+
+
+Notation
+* (color) gradient = colormap
+
+
+# gradient forms
+* numbers aproximating transfer function
+* function ( transfer functions) 
 * image
-  * stripe of colors
-  * diagram of the function
-  * CLUT image file
-    * [imagemagic](https://imagemagick.org/script/command-line-options.php#clut): image is ordinarily a gradient image containing the histogram mapping of how each channel should be modified. Typically it is a either a single row or column image of replacement color values. If larger than a single row or column, values are taken from a diagonal line from top-left to bottom-right corners.
-    * [gimp](https://docs.gimp.org/2.10/en/plug-in-gradmap.html)
-    * [gmic](https://gmic.eu/color_presets/index.shtml)
-    * [darktable](https://www.darktable.org/2019/05/New%20module-lut3d/)
+
+## numbers aproximating transfer function
+* array of 3 values ( RGB)
+  * [LUT](https://en.wikipedia.org/wiki/Lookup_table) 
+* csv or text file with data ( 3 columns)
+* list of numbers in the binary parameter file
 
 
-What should and what should not do colrmap in scintific visualisation
-* ["Many colour maps provided by vendors have highly uneven perceptual contrast over their range. Colour maps may have points of locally high colour contrast leading to the perception of false anomalies in your data when there is none. Conversely colour maps may also have 'flat spots' of low perceptual contrast that prevent you from seeing features in the data."](https://peterkovesi.com/projects/colourmaps/)
-* ["both obfuscate the data with artifacts that are not in the data and hide important features that are in the data"](http://www.kennethmoreland.com/color-advice/BadColorMaps.pdf) 
+## function ( 3 transfer functions) = colour map 
+
+## image
+* stripe of colors
+* diagram of the function
+* CLUT image file
+  * [imagemagic](https://imagemagick.org/script/command-line-options.php#clut): image is ordinarily a gradient image containing the histogram mapping of how each channel should be modified. Typically it is a either a single row or column image of replacement color values. If larger than a single row or column, values are taken from a diagonal line from top-left to bottom-right corners.
+  * [gimp](https://docs.gimp.org/2.10/en/plug-in-gradmap.html)
+  * [gmic](https://gmic.eu/color_presets/index.shtml)
+  * [darktable](https://www.darktable.org/2019/05/New%20module-lut3d/)
+
+# Features of colormaps:
+* number of the gradient segments
+* monotonicy of the lightness 
+* function of color channel and the gradient segment: linear / nonlinear
+* cyclic / non-cyclic
+* type and a range of the numbers: 
+  * unsigned char and [0 ; 255]
+  * double and [0.0 ; 1.0 ]
+
+
 
 
 
@@ -26,31 +52,19 @@ What should and what should not do colrmap in scintific visualisation
 
 
 [Taxonomy of Colour Maps by Peter Kovesi](http://arxiv.org/abs/1509.03700)
-* linear : are intended for general use and have colour lightness values that increase or decrease linearly over the colour map's range
-* diverging = ratio, bipolar or double-ended color maps 
-* rainbow
-* cyclic
-* isoluminant : constant lightness and low contrast colour maps can be useful when displaying data with [relief shading](https://en.wikipedia.org/wiki/Terrain_cartography#Shaded_relief)
 
 
 Taxonomy of Colour Maps according to the lightness:
 * [monotone ( monotonic)](https://en.wikipedia.org/wiki/Monotonic_function) with monotonic brightness
-  * linear  = have colour lightness values that increase or decrease linearly over the colour map's range
+  * linear  = have colour lightness values that increase or decrease linearly over the colour map's range. Are intended for general use and have colour lightness values that increase or decrease linearly over the colour map's range
   * nonlinear
-* isoluminant
+* isoluminant:  constant lightness and low contrast colour maps can be useful when displaying data with [relief shading](https://en.wikipedia.org/wiki/Terrain_cartography#Shaded_relief)
 * non monotone 
   * multisegment
     * 2 segments
-      * diverging = [is a double-ended map containing colors with different hues at each end and meeting with a bright neutral color in the middle. Diverging color maps are traditionally designed for displaying scalars that have a value of special significance in the middle (such as sea level for elevation or the freezing point for temperature).](http://www.kennethmoreland.com/color-advice/BadColorMaps.pdf)
+      * diverging = ratio, bipolar or double-ended color maps = [a map containing colors with different hues at each end and meeting with a bright neutral color in the middle. Diverging color maps are traditionally designed for displaying scalars that have a value of special significance in the middle (such as sea level for elevation or the freezing point for temperature).](http://www.kennethmoreland.com/color-advice/BadColorMaps.pdf)
     * 4 segments:   Linas
-    * 6 segments:  rainbow 
-
-
-Features of colormaps:
-* number of the gradient segments
-* monotonicy of the lightness
-* function of color channel and the gradient segment: linear / nonlinear
-* cyclic / non-cyclic
+    * 6 segments:  rainbow : should not be used in scientific computing
 
 
    
@@ -152,7 +166,7 @@ so R jumps from 166 to 150
 
 I have chaged it manually :
 * only 5 points = 4 linear segments
-* last point ( position) chjanged to 1.00000
+* last point ( position) changed to 1.00000
 
 ```txt
 0.000000	0	0	0
@@ -162,7 +176,8 @@ I have chaged it manually :
 1.000000	252	36	19
 ```
 
-Now one can compute using [polysolve by P. Lutus](https://arachnoid.com/polysolve/) one can compute  4 functions for each color channel.
+Now one can compute: 4 functions for each color channel ( 12 functions) using [polysolve by P. Lutus](https://arachnoid.com/polysolve/).
+Result:   
 
 
 ![](608.png "New Linas gradient ( colormap)")  
@@ -177,7 +192,7 @@ C code for Linas gradient:
 
 
 
-Examples of use: [Linas art gallery - my version of Linas programs](https://gitlab.com/adammajewski/LinasArtGallery_MandelbrotSet)
+Examples of use: [Linas art gallery - my version of Linas programs with old gradient](https://gitlab.com/adammajewski/LinasArtGallery_MandelbrotSet)
 
     
     
