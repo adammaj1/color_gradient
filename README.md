@@ -9,7 +9,7 @@ What should and what should not do coloromap in scintific visualisation?
 
 
 Notation
-* (color) gradient = colormap
+* (color) gradient = colormap = palette
 
 
 # gradient forms
@@ -21,6 +21,14 @@ Notation
 * array of 3 values ( RGB)
   * [LUT](https://en.wikipedia.org/wiki/Lookup_table) 
 * csv or text file with data ( 3 columns)
+  * [Fracting .map files)](http://www.krajzewicz.de/blog/free-color-palettes.php)
+  * [automatic-color-palette-creation - Softology's Blog](https://softologyblog.wordpress.com/2019/03/23/automatic-color-palette-creation/)
+  * [colorzilla](https://www.colorzilla.com/firefox/palettes.html)
+  * gnuplot pal files
+  * [cran](http://cran.fhcrc.org/web/packages/pals/vignettes/pals_examples.html)
+  * [gencolormap](https://marlam.de/gencolormap/)
+* css file
+  * [gradient editor from colorzilla](https://www.colorzilla.com/gradient-editor/)
 * list of numbers in the binary parameter file
 
 
@@ -43,7 +51,8 @@ Notation
 * type and a range of the numbers: 
   * unsigned char and [0 ; 255]
   * double and [0.0 ; 1.0 ]
-
+* length of the numbers array ( proportional to precision of nonlinear function approximation. for linear function 2 points are enough)
+* perceptual uniformity means that all pairs of adjacent colors will look equally different from each other 
 
 
 
@@ -63,10 +72,11 @@ Taxonomy of Colour Maps according to the lightness:
   * multisegment
     * 2 segments
       * diverging = ratio, bipolar or double-ended color maps = [a map containing colors with different hues at each end and meeting with a bright neutral color in the middle. Diverging color maps are traditionally designed for displaying scalars that have a value of special significance in the middle (such as sea level for elevation or the freezing point for temperature).](http://www.kennethmoreland.com/color-advice/BadColorMaps.pdf)
-    * 4 segments:   Linas
-    * 6 segments:  rainbow : should not be used in scientific computing
-
-
+      * 4 segments:   Linas
+      * 6 segments:  rainbow : should not be used in scientific computing
+    * cyclic 
+      * [wave colormaps](https://sciviscolor.org/wave-colormaps/)
+  
    
   
 # Examples
@@ -78,6 +88,7 @@ Taxonomy of Colour Maps according to the lightness:
 * GrayNL3 = 5
 * GraySqrt = 6
 * Green = 7
+* Linas2 = 8
 
 ## Rainbow colormap
 ![](600.png "Rainbow gradient ( colormap)")  
