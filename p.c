@@ -301,6 +301,77 @@ void GiveColorGreen(double position, unsigned char c[]){
 
 
 
+void GiveLinas2Color(double position ,  unsigned char c[])
+{
+  /* based on the code by Linas Vepstas January 16 1994 : void make_cmap (void) */
+
+   
+   
+  
+  
+  // gradient with 4 segments 0-0.25-0.5-0.75-1.0
+  /* ramp from black to blue = (0.0 ; 0.25)) */
+  if (position<0.25) {
+    	c[0] = 0;
+    	c[1] = 0;
+    	c[2] = 708*position;; // B
+    	return;
+  }
+  /* ramp down from blue, up to green = (0.25 ; 0.5)*/
+  if (position<0.5) {
+  	  
+  	c[0] = 0; //R
+    	c[1] =  -177+708*position; // G
+    	c[2] =  354 - 708* position;; // B
+    	return;
+  }
+  /* ramp from green to yellow  = (0.5 ; 0.75) */
+  if (position<0.75) {
+    	
+    	c[0] = -420+840*position; //R
+    	c[1] =  219-84*position; // G
+    	c[2] = 0;
+    	return;
+  }
+  /* position>0.75 :  ramp from yellow to red (pink) */
+  	
+	c[0] =  84+168*position; //R
+    	c[1] = 516-480*position; // G
+    	c[2] = -57 + 76*position; // B
+
+    
+   
+}
+
+
+
+// http://www.kennethmoreland.com/color-maps/
+void GiveColorCoolWarm(double position, unsigned char c[]){
+	
+	
+	double R,G,B;
+	double x = position;
+	double x2 = x*x;
+	double x3 = x*x2;
+	double x4 = x*x3;
+	double x5 = x*x4;
+	double x6 = x*x5;
+	
+	 
+	
+	R =  2.4070949725529692e-001 + 8.3340565013768031e-001*x + 2.6191922175556543e+000*x2 - 4.0994936709055061e+000*x3 + 1.1014553405733734e+000*x4;
+	G =  2.8978300321243283e-001 + 2.2641158553110725e+000*x - 6.8483016873914799e+000*x2 + 3.0238558676188145e+001*x3 - 7.0431595279051223e+001*x4 + 6.8583306445298092e+001*x5 - 2.4054295028042432e+001*x6;
+	B =  7.4391703318514535e-001 + 1.8345430120497781e+000*x - 3.1885763361607244e+000*x2 - 8.4015787106949880e-001*x3 + 1.6162754134259683e+000*x4;
+
+	// change range 
+	c[0] = (unsigned char) 255*R; //R
+	c[1] = (unsigned char) 255*G; // G
+	c[2] = (unsigned char) 255*B; // B	
+	
+	
+
+}
+
 
 //
 int GiveColor(double position, int n, unsigned char c[]){
@@ -315,6 +386,8 @@ int GiveColor(double position, int n, unsigned char c[]){
 	case 5: {GiveGrayColorNL3(position,c); break;}
 	case 6: {GiveGrayColorSqrt(position,c); break;}
 	case 7: {GiveColorGreen(position,c); break;}
+	case 8: {GiveLinas2Color(position,c); break;}
+	case 9: {GiveColorCoolWarm(position,c); break;}
 	default:{GiveRainbowColor(position, c);}
 	}
 	
@@ -489,7 +562,7 @@ int main (){
 	int n;
 	setup();
 	//
-	for (n = 0; n<8; ++n)
+	for (n = 0; n< 10; ++n)
 		MakeGradientImage(data, n);
 	
 	end();

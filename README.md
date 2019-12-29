@@ -27,6 +27,7 @@ Notation
   * gnuplot pal files
   * [cran](http://cran.fhcrc.org/web/packages/pals/vignettes/pals_examples.html)
   * [gencolormap](https://marlam.de/gencolormap/)
+  * [matplotlib](https://matplotlib.org/3.1.0/gallery/color/colormap_reference.html)
 * css file
   * [gradient editor from colorzilla](https://www.colorzilla.com/gradient-editor/)
 * list of numbers in the binary parameter file
@@ -89,6 +90,7 @@ Taxonomy of Colour Maps according to the lightness:
 * GraySqrt = 6
 * Green = 7
 * Linas2 = 8
+* CoolWarm diverging 
 
 ## Rainbow colormap
 ![](600.png "Rainbow gradient ( colormap)")  
@@ -190,7 +192,7 @@ Examples of use: [Linas art gallery - my version of Linas programs with old grad
 ![](6.png "RGB profiles of the GraySqrt colormap")  
 
 ## Green colormap
-
+![](607.png "Green gradient ( colormap)")  
 ![](7.png "RGB profiles of the Green colormap")  
 
 
@@ -201,6 +203,14 @@ Examples of use: [Linas art gallery - my version of Linas programs with old grad
 More is here:
 * [commons](https://commons.wikimedia.org/wiki/File:Julia_set_for_f(z)_%3D_z%5E2%2B0.355534_-0.337292*i.png)
 * [gitlab](https://gitlab.com/adammajewski/pfm_c)
+
+
+##  CoolWarm colormap
+![](609.png "CoolWarm diverging gradient ( colormap)")  
+![](9.png "RGB profiles of the CoolWarm colormap")  
+
+
+
 
 # Conversion between gradient types
 
@@ -282,7 +292,8 @@ are wellcome
   
 ## License
 
-A short snippet describing the license (MIT, Apache, etc.)
+[GPL](https://www.gnu.org/licenses/gpl-3.0.html)
+see also []()
 
 
 # technical notes
