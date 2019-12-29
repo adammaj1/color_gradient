@@ -4,10 +4,12 @@
 # Set the output file type
 set terminal png
 
+# list of gradient names;  update it maually
+# gnuplot array is numbered from 1 to words(array), not like c arrays
+titles = "Rainbow Linas Magma GrayL GrayNL2 GrayNL3 GraySqrt Green NewLinas"
 
-titles = "Rainbow Linas Magma GrayL GrayNL2 GrayNL3 GraySqrt Green"
-
-
+# length of array titles = nMax, but tex files are numbered from 0 to nMax-1 ( c style)
+nMax = words(titles) -1 
 
 
 #  legend
@@ -28,8 +30,10 @@ set ylabel "color intensity"
 set yrange [-0.2:1.1]
 
 
+# plot nMax images
 # https://stackoverflow.com/questions/14946530/loop-structure-inside-gnuplot
-do for [n=0:7] {
+
+do for [n=0:nMax] {
 	# Set the output file name
   	outfile = sprintf('%d.png',n)
   	set output outfile

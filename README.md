@@ -112,8 +112,8 @@ void GiveRainbowColor(double position, unsigned char c[])
 
   
 ## Linas colormap
-![](601.png "Linas gradient ( colormap)")  
-![](1.png "RGB profiles of the Linas colormap")  
+![](601.png "Old Linas gradient ( colormap)")  
+![](1.png "RGB profiles of the old Linas colormap")  
 
 
 >Your new colormap is different and ugly-ish. The line between red-and-yellow is much much worse than before.  the red-yellow discontinuity is ... confusing, annoying. .. to me, at least. Linas
@@ -121,49 +121,51 @@ void GiveRainbowColor(double position, unsigned char c[])
 Features of Linas gradient:
 * non monotone ( see black curve) 
 * complex = consist of 4 monotone segments
-* the red-yellow discontinuity can be seen as a [jump discontinuity](https://en.wikipedia.org/wiki/Classification_of_discontinuities#Jump_discontinuity) of black curve at gradient position 0.8
+* the red-yellow discontinuity can be seen as a [jump discontinuity](https://en.wikipedia.org/wiki/Classification_of_discontinuities#Jump_discontinuity) of black curve at gradient position 0.753333	
 
-```c
-void GiveLinasColor(double position ,  unsigned char c[])
-{
-  /* based on the code by Linas Vepstas January 16 1994 : void make_cmap (void) */
-
-   
-  int i;
-  int iMax = 239;
-  i=(int)(iMax-1)*position;  
-  c[0] = c[1] = c[2] = 0; /* set up a default look up table */
-  
-  
-  // gradient with 4 segments 
-  /* ramp from black to blue */
-  if (i<60) {
-    c[0] = 0;
-    c[1] = 0;
-    c[2] = (unsigned char) i*3;
-  }
-  /* ramp down from blue, up to green */
-  if (i>=60 && i<120) {
-    c[0] = 0;
-    c[1] = (unsigned char) (i-60)*3;
-    c[2] = (unsigned char) (120-i)*3;
-  }
-  /* ramp from green to yellow */
-  if (i >=120 && i<180) {
-    /* vlt[i].r = (char) (((i-120)*7) / 2); */
-    c[0] = (unsigned char) (210 - (7*(180-i)*(180-i)) / 120);
-    c[1] = (unsigned char) (210 -i/4);
-    c[2] = 0;
-  }
-  /* ramp from yellow to red (pink) */
-  if (i>=180 && i<iMax) {
-    c[0] = (unsigned char) (210 + (3*(i-180))/4);
-    c[1] = (unsigned char) (510 - 2*i);
-    c[2] = (unsigned char) (i-180)/3;
-  }
-}
-
+```txt
+0.743333	 210	166	0
+0.746667	 210	166	0
+0.750000	 210	166	0
+0.753333	 210	166	0
+0.756667	 210	150	0
+0.760000	 210	150	0
+0.763333	 210	148	0
+0.766667	 211	146	0
+0.770000	 212	144	1
+0.773333	 213	142	1
+0.776667	 213	142	1
+0.780000	 213	140	1
 ```
+
+so R jumps from 166 to 150 
+
+
+I have chaged it manually :
+* only 5 points = 4 linear segments
+* last point ( position) chjanged to 1.00000
+
+```txt
+0.000000	0	0	0
+0.250000	0	0	177
+0.500000	0	175	0
+0.750000	210	156	0
+1.000000	252	36	19
+```
+
+Now one can compute using [polysolve by P. Lutus](https://arachnoid.com/polysolve/) one can compute  4 functions for each color channel.
+
+
+![](608.png "New Linas gradient ( colormap)")  
+![](8.png "RGB profiles of the New Linas colormap")  
+
+
+
+
+C code for Linas gradient:
+* old (= bad):  funcion GiveLinasColor from p.c
+* new (= good): function GiveLinas2Color 
+
 
 
 Examples of use: [Linas art gallery - my version of Linas programs](https://gitlab.com/adammajewski/LinasArtGallery_MandelbrotSet)
