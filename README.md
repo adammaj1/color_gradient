@@ -90,7 +90,7 @@ Taxonomy of Colour Maps according to the lightness:
 * GraySqrt = 6
 * Green = 7
 * Linas2 = 8
-* CoolWarm diverging 
+* CoolWarm diverging = 9 
 
 ## Rainbow colormap
 ![](600.png "Rainbow gradient ( colormap)")  
@@ -106,7 +106,7 @@ Features of rainbow gradient:
 * non monotone ( see black curve) 
 * complex = consist of 6 monotone segments
 
-c function = GiveRainbowColor from p.c file
+c function = GiveRainbowColor from [p.c file](p.c)
 
 ## Linas colormap
 ![](601.png "Old Linas gradient ( colormap)")  
@@ -118,7 +118,7 @@ c function = GiveRainbowColor from p.c file
 Features of Linas gradient:
 * non monotone ( see black curve) 
 * complex = consist of 4 monotone segments
-* the red-yellow discontinuity can be seen as a [jump discontinuity](https://en.wikipedia.org/wiki/Classification_of_discontinuities#Jump_discontinuity) of black curve at gradient position 0.753333	
+* the red-yellow discontinuity can be seen as a [jump discontinuity](https://en.wikipedia.org/wiki/Classification_of_discontinuities#Jump_discontinuity) of the green, red and black curve at gradient position 0.753333	
 
 ```txt
 0.743333	 210	166	0
@@ -161,8 +161,8 @@ Result:
 
 
 C code for Linas gradient:
-* old (= bad):  funcion GiveLinasColor from p.c
-* new (= good): function GiveLinas2Color 
+* old (= bad):  funcion GiveLinasColor from [p.c](p.c)
+* new (= good): function GiveLinas2Color from [p.c](p.c)
 
 
 
@@ -205,11 +205,13 @@ More is here:
 * [gitlab](https://gitlab.com/adammajewski/pfm_c)
 
 
-##  CoolWarm colormap
+##  CoolWarm diverging colormap
 ![](609.png "CoolWarm diverging gradient ( colormap)")  
 ![](9.png "RGB profiles of the CoolWarm colormap")  
 
-
+code:
+* funcion GiveColorCoolWarm from [p.c](p.c)
+* [diverging_map_gnuplot.pal](diverging_map_gnuplot.pal) - gnuplot palette file
 
 
 # Conversion between gradient types
@@ -237,7 +239,9 @@ $`Y = 0.2126 R + 0.7152 G + 0.0722 B`$
   * in OpenCV source /src/cv/cvcolor.cpp there are functions for color space conversions: [icvBGRx2Lab_32f_CnC3R](https://github.com/cybertk/opencv/blob/master/opencv/cv/src/cvcolor.cpp)
   * [python code by Manoj Pandey](https://gist.github.com/manojpandey/f5ece715132c572c80421febebaf66ae)
 
-
+# files
+* [p.c](p.c) - c program which creates 60n.png files and n.txt files 
+* [plot.gp](plot.gp) - gnuplot program which converts n.png fils from n.txt files
 
 
 # Links
