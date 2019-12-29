@@ -33,18 +33,27 @@ What should and what should not do colrmap in scintific visualisation
 * isoluminant : constant lightness and low contrast colour maps can be useful when displaying data with [relief shading](https://en.wikipedia.org/wiki/Terrain_cartography#Shaded_relief)
 
 
-Taxonomy of Colour Maps according to brightness
-* simple 
-  * [monotone ( monotonic)](https://en.wikipedia.org/wiki/Monotonic_function) with monotonic brightness
-    * linear  = have colour lightness values that increase or decrease linearly over the colour map's range
-    * nonlinear
-  * isoluminant
-  * non monotone 
-    * diverging = [is a double-ended map containing colors with different hues at each end and meeting with a bright neutral color in the middle. Diverging color maps are traditionally designed for displaying scalars that have a value of special significance in the middle (such as sea level for elevation or the freezing point for temperature).](http://www.kennethmoreland.com/color-advice/BadColorMaps.pdf)
-    * rainbow = should not be used in scientific visualisation
-* complex
-  * cyclic
-  
+Taxonomy of Colour Maps according to the lightness:
+* [monotone ( monotonic)](https://en.wikipedia.org/wiki/Monotonic_function) with monotonic brightness
+  * linear  = have colour lightness values that increase or decrease linearly over the colour map's range
+  * nonlinear
+* isoluminant
+* non monotone 
+  * multisegment
+    * 2 segments
+      * diverging = [is a double-ended map containing colors with different hues at each end and meeting with a bright neutral color in the middle. Diverging color maps are traditionally designed for displaying scalars that have a value of special significance in the middle (such as sea level for elevation or the freezing point for temperature).](http://www.kennethmoreland.com/color-advice/BadColorMaps.pdf)
+    * 4 segments:   Linas
+    * 6 segments:  rainbow 
+
+
+Features of colormaps:
+* number of the gradient segments
+* monotonicy of the lightness
+* function of color channel and the gradient segment: linear / nonlinear
+* cyclic / non-cyclic
+
+
+   
   
 # Examples
 * Rainbow = 0
@@ -194,16 +203,42 @@ Examples of use: [Linas art gallery - my version of Linas programs](https://gitl
 ![](6.png "RGB profiles of the GraySqrt colormap")  
 
 ## Green colormap
-![](607.png "Green gradient ( colormap)")  
+
 ![](7.png "RGB profiles of the Green colormap")  
 
 
+
+
+![](julia85.png "Example of use Green gradient ( colormap)")  
+
+More is here:
+* [commons](https://commons.wikimedia.org/wiki/File:Julia_set_for_f(z)_%3D_z%5E2%2B0.355534_-0.337292*i.png)
+* [gitlab](https://gitlab.com/adammajewski/pfm_c)
 
 # Conversion between gradient types
 
 ## How to convert data to the function ( how to fit curve to the data)?
 * Polynomial Regression 
   * [polysolve by P. Lutus](https://arachnoid.com/polysolve/)- online tool
+
+
+
+## Lightness
+* [How to Determine Lightness by Reda Lemeden](https://thoughtbot.com/blog/closer-look-color-lightness#how-to-determine-lightness)
+* [stackoverflow question: formula-to-determine-brightness-of-rgb-color](https://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color)
+
+
+[Relative luminance is formed as a weighted sum of linear RGB components](https://en.wikipedia.org/wiki/Luma_(video))
+
+$`Y = 0.2126 R + 0.7152 G + 0.0722 B`$
+
+
+
+### Cielab lightness
+* RGB -> XYZ -> Celab
+  * [easyrgb](http://www.easyrgb.com/en/math.php#text2)
+  * in OpenCV source /src/cv/cvcolor.cpp there are functions for color space conversions: [icvBGRx2Lab_32f_CnC3R](https://github.com/cybertk/opencv/blob/master/opencv/cv/src/cvcolor.cpp)
+  * [python code by Manoj Pandey](https://gist.github.com/manojpandey/f5ece715132c572c80421febebaf66ae)
 
 
 
@@ -233,84 +268,6 @@ Examples of use: [Linas art gallery - my version of Linas programs](https://gitl
   * [matlab functions](https://www.peterkovesi.com/matlabfns/index.html#colour)
 ## www
 * [khan academy:  color science by Pixar](https://www.khanacademy.org/partner-content/pixar/color)
-
-## Lightness
-* [How to Determine Lightness by Reda Lemeden](https://thoughtbot.com/blog/closer-look-color-lightness#how-to-determine-lightness)
-* [stackoverflow question: formula-to-determine-brightness-of-rgb-color](https://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color)
-
-
-[Relative luminance is formed as a weighted sum of linear RGB components](https://en.wikipedia.org/wiki/Luma_(video))
-
-$`Y = 0.2126 R + 0.7152 G + 0.0722 B`$
-
-
-
-### Cielab lightness
-* RGB -> XYZ -> Celab
-  * [easyrgb](http://www.easyrgb.com/en/math.php#text2)
-  * in OpenCV source /src/cv/cvcolor.cpp there are functions for color space conversions: icvBGRx2Lab_32f_CnC3R
-  * [python code by Manoj Pandey](https://gist.github.com/manojpandey/f5ece715132c572c80421febebaf66ae)
-
-
-```c++
-// https://github.com/cybertk/opencv/blob/master/opencv/cv/src/cvcolor.cpp
-static CvStatus CV_STDCALL
-icvBGRx2Lab_32f_CnC3R( const float* src, int srcstep, float* dst, int dststep,
-                       CvSize size, int src_cn, int blue_idx )
-{
-    int i;
-    srcstep /= sizeof(src[0]);
-    dststep /= sizeof(dst[0]);
-    srcstep -= size.width*src_cn;
-    size.width *= 3;
-
-    for( ; size.height--; src += srcstep, dst += dststep )
-    {
-        for( i = 0; i < size.width; i += 3, src += src_cn )
-        {
-            float b = src[blue_idx], g = src[1], r = src[2^blue_idx];
-            float x, y, z;
-            float L, a;
-
-            x = b*labXb_32f + g*labXg_32f + r*labXr_32f;
-            y = b*labYb_32f + g*labYg_32f + r*labYr_32f;
-            z = b*labZb_32f + g*labZg_32f + r*labZr_32f;
-
-            if( x > labT_32f )
-                x = cvCbrt(x);
-            else
-                x = x*labSmallScale_32f + labSmallShift_32f;
-
-            if( z > labT_32f )
-                z = cvCbrt(z);
-            else
-                z = z*labSmallScale_32f + labSmallShift_32f;
-
-            if( y > labT_32f )
-            {
-                y = cvCbrt(y);
-                L = y*labLScale_32f - labLShift_32f;
-            }
-            else
-            {
-                L = y*labLScale2_32f;
-                y = y*labSmallScale_32f + labSmallShift_32f;
-            }
-
-            a = 500.f*(x - y);
-            b = 200.f*(y - z);
-
-            dst[i] = L;
-            dst[i+1] = a;
-            dst[i+2] = b;
-        }
-    }
-
-    return CV_OK;
-}
-```
-
-
 
 
 
