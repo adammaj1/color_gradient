@@ -1,88 +1,11 @@
 
 
-What should and what should not do colormap in scientific visualisation?
+What should and what should not do colormap/gradient in scientific visualisation?
 * should highlight features of the data
 * should not highlight features that are not in the data but only in the gradient itself
   * ["Many colour maps provided by vendors have highly uneven perceptual contrast over their range. Colour maps may have points of locally high colour contrast leading to the perception of false anomalies in your data when there is none. Conversely colour maps may also have 'flat spots' of low perceptual contrast that prevent you from seeing features in the data."](https://peterkovesi.com/projects/colourmaps/)
   * ["both obfuscate the data with artifacts that are not in the data and hide important features that are in the data"](http://www.kennethmoreland.com/color-advice/BadColorMaps.pdf) 
 
-
-
-Notation
-* [(color) gradient](https://en.wikipedia.org/wiki/Color_gradient) = colormap = palette
-
-
-# gradient forms
-* numbers aproximating transfer function
-* function ( [transfer functions](https://en.wikibooks.org/wiki/Color_Theory/Color_gradient#Transfer_function)) 
-* image
-
-## numbers aproximating transfer function
-* array of 3 values ( RGB)
-  * [LUT](https://en.wikipedia.org/wiki/Lookup_table) 
-* file with data ( 3 columns) in various formats: txt, cvs and [many others](http://soliton.vm.bytemark.co.uk/pub/cpt-city/notes/formats.html) used by [graphic software](http://soliton.vm.bytemark.co.uk/pub/cpt-city/notes/software.html)
-  * [http://soliton.vm.bytemark.co.uk/pub/cpt-city/]()
-  * [Fracting .map files)](http://www.krajzewicz.de/blog/free-color-palettes.php)
-  * [automatic-color-palette-creation - Softology's Blog](https://softologyblog.wordpress.com/2019/03/23/automatic-color-palette-creation/)
-  * [colorzilla](https://www.colorzilla.com/firefox/palettes.html)
-  * gnuplot 
-    * pal files
-    * [formule](http://gnuplot.sourceforge.net/demo/pm3dcolors.html)
-    
-  * [cran](http://cran.fhcrc.org/web/packages/pals/vignettes/pals_examples.html)
-  * [gencolormap](https://marlam.de/gencolormap/)
-  * [matplotlib](https://matplotlib.org/3.1.0/gallery/color/colormap_reference.html)
-* css file
-  * [gradient editor from colorzilla](https://www.colorzilla.com/gradient-editor/)
-* list of numbers in the binary parameter file
-
-
-## function ( 3 transfer functions) = colour map 
-
-## image
-* stripe of colors
-* diagram of the function
-* CLUT image file
-  * [imagemagic](https://imagemagick.org/script/command-line-options.php#clut): image is ordinarily a gradient image containing the histogram mapping of how each channel should be modified. Typically it is a either a single row or column image of replacement color values. If larger than a single row or column, values are taken from a diagonal line from top-left to bottom-right corners.
-  * [gimp](https://docs.gimp.org/2.10/en/plug-in-gradmap.html)
-  * [gmic](https://gmic.eu/color_presets/index.shtml)
-  * [darktable](https://www.darktable.org/2019/05/New%20module-lut3d/)
-
-# Features of colormaps:
-* number of the gradient segments
-* monotonicy of the lightness 
-* function of color channel and the gradient segment: linear / nonlinear
-* cyclic / non-cyclic
-* type and a range of the numbers: 
-  * unsigned char and [0 ; 255]
-  * double and [0.0 ; 1.0 ]
-* length of the numbers array ( proportional to precision of nonlinear function approximation. for linear function 2 points are enough)
-* perceptual uniformity means that all pairs of adjacent colors will look equally different from each other 
-
-
-
-
-# Taxonomy of color gradients
-
-
-[Taxonomy of Colour Maps by Peter Kovesi](http://arxiv.org/abs/1509.03700)
-
-
-Taxonomy of Colour Maps according to the lightness:
-* [monotone ( monotonic)](https://en.wikipedia.org/wiki/Monotonic_function) with monotonic brightness
-  * linear  = have colour lightness values that increase or decrease linearly over the colour map's range. Are intended for general use and have colour lightness values that increase or decrease linearly over the colour map's range
-  * nonlinear
-* isoluminant:  constant lightness and low contrast colour maps can be useful when displaying data with [relief shading](https://en.wikipedia.org/wiki/Terrain_cartography#Shaded_relief)
-* non monotone 
-  * multisegment
-    * 2 segments
-      * diverging = ratio, bipolar or double-ended color maps = [a map containing colors with different hues at each end and meeting with a bright neutral color in the middle. Diverging color maps are traditionally designed for displaying scalars that have a value of special significance in the middle (such as sea level for elevation or the freezing point for temperature).](http://www.kennethmoreland.com/color-advice/BadColorMaps.pdf)
-      * 4 segments:   Linas
-      * 6 segments:  rainbow : should not be used in scientific computing
-    * cyclic 
-      * [wave colormaps](https://sciviscolor.org/wave-colormaps/)
-  
-   
   
 # Examples
 * Rainbow = 0
@@ -221,6 +144,88 @@ Description by [Kenneth Moreland ](http://www.kennethmoreland.com/color-advice/)
 code:  
 * funcion GiveColorCoolWarm from [p.c](p.c)
 * [diverging_map_gnuplot.pal](diverging_map_gnuplot.pal) - gnuplot palette file
+
+
+
+
+Notation
+* [(color) gradient](https://en.wikipedia.org/wiki/Color_gradient) = colormap 
+* A gradient is a set of colors arranged in a linear order
+* palette 
+
+# gradient forms
+* numbers aproximating transfer function
+* function ( [transfer functions](https://en.wikibooks.org/wiki/Color_Theory/Color_gradient#Transfer_function)) 
+* image
+
+## numbers aproximating transfer function
+* array of 3 values ( RGB)
+  * [LUT](https://en.wikipedia.org/wiki/Lookup_table) 
+* file with data ( 3 columns) in various formats: txt, cvs and [many others](http://soliton.vm.bytemark.co.uk/pub/cpt-city/notes/formats.html) used by [graphic software](http://soliton.vm.bytemark.co.uk/pub/cpt-city/notes/software.html)
+  * [cpt-city](http://soliton.vm.bytemark.co.uk/pub/cpt-city/) 
+  * [Fracting .map files)](http://www.krajzewicz.de/blog/free-color-palettes.php)
+  * [automatic-color-palette-creation - Softology's Blog](https://softologyblog.wordpress.com/2019/03/23/automatic-color-palette-creation/)
+  * [colorzilla](https://www.colorzilla.com/firefox/palettes.html)
+  * gnuplot 
+    * pal files
+    * [formule](http://gnuplot.sourceforge.net/demo/pm3dcolors.html)
+    
+  * [cran](http://cran.fhcrc.org/web/packages/pals/vignettes/pals_examples.html)
+  * [gencolormap](https://marlam.de/gencolormap/)
+  * [matplotlib](https://matplotlib.org/3.1.0/gallery/color/colormap_reference.html)
+* css file
+  * [gradient editor from colorzilla](https://www.colorzilla.com/gradient-editor/)
+* list of numbers in the binary parameter file
+
+
+## function ( 3 transfer functions) = colour map 
+
+## image
+* stripe of colors
+* diagram of the function
+* CLUT image file
+  * [imagemagic](https://imagemagick.org/script/command-line-options.php#clut): image is ordinarily a gradient image containing the histogram mapping of how each channel should be modified. Typically it is a either a single row or column image of replacement color values. If larger than a single row or column, values are taken from a diagonal line from top-left to bottom-right corners.
+  * [gimp](https://docs.gimp.org/2.10/en/plug-in-gradmap.html)
+  * [gmic](https://gmic.eu/color_presets/index.shtml)
+  * [darktable](https://www.darktable.org/2019/05/New%20module-lut3d/)
+
+# Features of colormaps:
+* number of the gradient segments
+* monotonicy of the lightness 
+* function of color channel and the gradient segment: linear / nonlinear
+* cyclic / non-cyclic
+* type and a range of the numbers: 
+  * unsigned char and [0 ; 255]
+  * double and [0.0 ; 1.0 ]
+* length of the numbers array ( proportional to precision of nonlinear function approximation. for linear function 2 points are enough)
+* perceptual uniformity means that all pairs of adjacent colors will look equally different from each other 
+
+
+
+
+# Taxonomy of color gradients
+
+
+[Taxonomy of Colour Maps by Peter Kovesi](http://arxiv.org/abs/1509.03700)
+
+
+Taxonomy of Colour Maps according to the lightness:
+* [monotone ( monotonic)](https://en.wikipedia.org/wiki/Monotonic_function) with monotonic brightness
+  * linear  = have colour lightness values that increase or decrease linearly over the colour map's range. Are intended for general use and have colour lightness values that increase or decrease linearly over the colour map's range
+  * nonlinear
+* isoluminant:  constant lightness and low contrast colour maps can be useful when displaying data with [relief shading](https://en.wikipedia.org/wiki/Terrain_cartography#Shaded_relief)
+* non monotone 
+  * multisegment
+    * 2 segments
+      * diverging = ratio, bipolar or double-ended color maps = [a map containing colors with different hues at each end and meeting with a bright neutral color in the middle. Diverging color maps are traditionally designed for displaying scalars that have a value of special significance in the middle (such as sea level for elevation or the freezing point for temperature).](http://www.kennethmoreland.com/color-advice/BadColorMaps.pdf)
+      * 4 segments:   Linas
+      * 6 segments:  rainbow : should not be used in scientific computing
+    * cyclic 
+      * [wave colormaps](https://sciviscolor.org/wave-colormaps/)
+  
+   
+
+
 
 
 # Conversion between gradient types
