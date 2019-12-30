@@ -19,21 +19,27 @@ What should and what should not do colormap/gradient in scientific visualisation
 * Linas2 = 8
 * CoolWarm diverging = 9 
 
-## Rainbow colormap
+## Rainbow colormap 
 ![](600.png "Rainbow gradient ( colormap)")  
 ![](0.png "RGB profiles of the rainbow colormap")  
 
-Compare with [gnuplot file](https://commons.wikimedia.org/wiki/File:Gnuplot_HSV_gradient.png)  
+Compare with [gnuplot image](https://commons.wikimedia.org/wiki/File:Gnuplot_HSV_gradient.png)  
 
 ![](Gnuplot_HSV_gradient.png "RGB profiles and image of the HSV gradient made with gnuplot")  
 
-It looks similar.
+It looks similar. sawtooth-shaped lightness profile made up of 5 ramp
 
 Features of rainbow gradient:
 * non monotone ( see black curve) 
-* complex = consist of 6 monotone segments
+* complex = consist of 6 monotone segments ( ramps)
 
 c function = GiveRainbowColor from [p.c file](p.c)
+
+
+
+See also:
+* [CIE LAB LINEAR L* RAINBOW](https://mycarta.wordpress.com/2012/12/06/the-rainbow-is-deadlong-live-the-rainbow-part-5-cie-lab-linear-l-rainbow/)
+* 
 
 ## Linas colormap
 ![](601.png "Old Linas gradient ( colormap)")  
@@ -106,6 +112,10 @@ Examples of use: [Linas art gallery - my version of Linas programs with old grad
 ![](603.png "GrayL gradient ( colormap)")  
 ![](3.png "RGB profiles of the GrayL colormap")    
 
+see also:
+* [Perception of visual information: the role of colour in seismic interpretation by  Barbara Froner, Stephen J. Purves, James Lowell  and Jonathan Henderson](https://pdfs.semanticscholar.org/31fc/111a17fc859750a664b0f4be5b60890b427d.pdf)
+* [an exponential grayscale cmap by Matteo Niccoli](https://github.com/mycarta/Reproducing-exponential-grayscale-cmap)
+* [sigmoid grayscale colormaps](https://github.com/mycarta/Sigmoid_app)
 ## GrayNL2 colormap
 ![](604.png "Linas gradient ( colormap)")  
 ![](4.png "RGB profiles of the Linas colormap")  
@@ -205,12 +215,11 @@ Notation
 
 # Taxonomy of color gradients
 
-
 [Taxonomy of Colour Maps by Peter Kovesi](http://arxiv.org/abs/1509.03700)
 
 
 Taxonomy of Colour Maps according to the lightness:
-* [monotone ( monotonic)](https://en.wikipedia.org/wiki/Monotonic_function) with monotonic brightness
+* [monotone ( monotonic)](https://en.wikipedia.org/wiki/Monotonic_function) with monotonic brightness = strictly monotonic lightness
   * linear  = have colour lightness values that increase or decrease linearly over the colour map's range. Are intended for general use and have colour lightness values that increase or decrease linearly over the colour map's range
   * nonlinear
 * isoluminant:  constant lightness and low contrast colour maps can be useful when displaying data with [relief shading](https://en.wikipedia.org/wiki/Terrain_cartography#Shaded_relief)
@@ -223,9 +232,11 @@ Taxonomy of Colour Maps according to the lightness:
     * cyclic 
       * [wave colormaps](https://sciviscolor.org/wave-colormaps/)
   
-   
-
-
+Names:   
+* [Perceptually Uniform Colour Maps](https://peterkovesi.com/projects/colourmaps/) = uniform perceptual contrast over their whole range
+* [perceptual colormap](https://github.com/mycarta/rainbowbot) = ordered, strictly monotonic lightness
+  * [How to evaluate and compare colormaps by Matteo Niccoli, MyCarta](https://github.com/seg/tutorials-2014/blob/master/1408_Evaluate_and_compare_colormaps/How_to_evaluate_and_compare_colormaps.ipynb)
+* [qualitative, sequential, and diverging](http://colorspace.r-forge.r-project.org/articles/hcl_palettes.html#qualitative-palettes)
 
 
 # Conversion between gradient types
