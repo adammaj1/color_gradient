@@ -1,6 +1,6 @@
 
 
-What should and what should not do coloromap in scintific visualisation?
+What should and what should not do colormap in scientific visualisation?
 * should highlight features of the data
 * should not highlight features that are not in the data but only in the gradient itself
   * ["Many colour maps provided by vendors have highly uneven perceptual contrast over their range. Colour maps may have points of locally high colour contrast leading to the perception of false anomalies in your data when there is none. Conversely colour maps may also have 'flat spots' of low perceptual contrast that prevent you from seeing features in the data."](https://peterkovesi.com/projects/colourmaps/)
@@ -9,22 +9,26 @@ What should and what should not do coloromap in scintific visualisation?
 
 
 Notation
-* (color) gradient = colormap = palette
+* [(color) gradient](https://en.wikipedia.org/wiki/Color_gradient) = colormap = palette
 
 
 # gradient forms
 * numbers aproximating transfer function
-* function ( transfer functions) 
+* function ( [transfer functions](https://en.wikibooks.org/wiki/Color_Theory/Color_gradient#Transfer_function)) 
 * image
 
 ## numbers aproximating transfer function
 * array of 3 values ( RGB)
   * [LUT](https://en.wikipedia.org/wiki/Lookup_table) 
-* csv or text file with data ( 3 columns)
+* file with data ( 3 columns) in various formats: txt, cvs and [many others](http://soliton.vm.bytemark.co.uk/pub/cpt-city/notes/formats.html) used by [graphic software](http://soliton.vm.bytemark.co.uk/pub/cpt-city/notes/software.html)
+  * [http://soliton.vm.bytemark.co.uk/pub/cpt-city/]()
   * [Fracting .map files)](http://www.krajzewicz.de/blog/free-color-palettes.php)
   * [automatic-color-palette-creation - Softology's Blog](https://softologyblog.wordpress.com/2019/03/23/automatic-color-palette-creation/)
   * [colorzilla](https://www.colorzilla.com/firefox/palettes.html)
-  * gnuplot pal files
+  * gnuplot 
+    * pal files
+    * [formule](http://gnuplot.sourceforge.net/demo/pm3dcolors.html)
+    
   * [cran](http://cran.fhcrc.org/web/packages/pals/vignettes/pals_examples.html)
   * [gencolormap](https://marlam.de/gencolormap/)
   * [matplotlib](https://matplotlib.org/3.1.0/gallery/color/colormap_reference.html)
@@ -205,11 +209,16 @@ More is here:
 * [gitlab](https://gitlab.com/adammajewski/pfm_c)
 
 
-##  CoolWarm diverging colormap
+##  Smooth CoolWarm diverging colormap 
 ![](609.png "CoolWarm diverging gradient ( colormap)")  
 ![](9.png "RGB profiles of the CoolWarm colormap")  
 
-code:
+Description by [Kenneth Moreland ](http://www.kennethmoreland.com/color-advice/)  
+* blue-red diverging 
+* It is a diverging (double-ended) color map with a smooth transition in the middle to prevent artifacts at the midpoint
+
+
+code:  
 * funcion GiveColorCoolWarm from [p.c](p.c)
 * [diverging_map_gnuplot.pal](diverging_map_gnuplot.pal) - gnuplot palette file
 
@@ -220,6 +229,14 @@ code:
 * Polynomial Regression 
   * [polysolve by P. Lutus](https://arachnoid.com/polysolve/)- online tool
 
+Tools:
+* gedit : replace "," with \t 
+* LibreOffice Calc ( opens cvs files, choose columns, remove columns))
+
+## How to convert between gradient files?
+* [cptutils by JJ Green](http://soliton.vm.bytemark.co.uk/pub/jjg/en/code/cptutils/)
+  * [online](http://soliton.vm.bytemark.co.uk/pub/cptutils-online/select.html)
+  * [git](https://gitlab.com/jjg/cptutils)
 
 
 ## Lightness
@@ -240,8 +257,12 @@ $`Y = 0.2126 R + 0.7152 G + 0.0722 B`$
   * [python code by Manoj Pandey](https://gist.github.com/manojpandey/f5ece715132c572c80421febebaf66ae)
 
 # files
+## programs
 * [p.c](p.c) - c program which creates 60n.png files and n.txt files 
 * [plot.gp](plot.gp) - gnuplot program which converts n.png fils from n.txt files
+## palettes
+* [diverging_map_gnuplot.pal](diverging_map_gnuplot.pal) 
+
 
 
 # Links
@@ -297,7 +318,7 @@ are wellcome
 ## License
 
 [GPL](https://www.gnu.org/licenses/gpl-3.0.html)
-see also []()
+
 
 
 # technical notes
