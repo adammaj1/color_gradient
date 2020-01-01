@@ -19,7 +19,7 @@ What should and what should not do colormap/gradient in scientific visualisation
 * Linas2 = 8
 * CoolWarm diverging = 9 
 
-## Rainbow colormap 
+## Rainbow colormap ( sawtooth rainbow)
 ![](600.png "Rainbow gradient ( colormap)")  
 ![](0.png "RGB profiles of the rainbow colormap")  
 
@@ -31,7 +31,7 @@ It looks similar. sawtooth-shaped lightness profile made up of 5 ramp
 
 Features of rainbow gradient:
 * non monotone ( see black curve) 
-* complex = consist of 6 monotone segments ( ramps)
+* complex = consist of 6 monotone segments ( ramps). Graph of the lightness looks like [saw with  plain tooth pattern](https://en.wikipedia.org/wiki/Crosscut_saw) or [triangle sawtooth wave](https://en.wikipedia.org/wiki/Sawtooth_wave)
 
 c function = GiveRainbowColor from [p.c file](p.c)
 
@@ -158,7 +158,7 @@ code:
 
 
 
-Notation
+# Notation
 * [(color) gradient](https://en.wikipedia.org/wiki/Color_gradient) = colormap 
 * A gradient is a set of colors arranged in a linear order
 * palette 
@@ -243,7 +243,7 @@ Names:
 
 ## How to convert data to the function ( how to fit curve to the data)?
 * Polynomial Regression 
-  * [polysolve by P. Lutus](https://arachnoid.com/polysolve/)- online tool
+  * [polysolve by P. Lutus](https://arachnoid.com/polysolve/)- online tool which gives a c function as an output ( click on the output form button to cycle through the available output forms)
 
 Tools:
 * gedit : replace "," with \t 
@@ -258,7 +258,7 @@ Tools:
 ## Lightness
 * [How to Determine Lightness by Reda Lemeden](https://thoughtbot.com/blog/closer-look-color-lightness#how-to-determine-lightness)
 * [stackoverflow question: formula-to-determine-brightness-of-rgb-color](https://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color)
-
+          
 
 [Relative luminance is formed as a weighted sum of linear RGB components](https://en.wikipedia.org/wiki/Luma_(video))
 
