@@ -112,6 +112,11 @@ Examples of use: [Linas art gallery - my version of Linas programs with old grad
 ![](603.png "GrayL gradient ( colormap)")  
 ![](3.png "RGB profiles of the GrayL colormap")    
 
+
+
+
+
+
 see also:
 * [Perception of visual information: the role of colour in seismic interpretation by  Barbara Froner, Stephen J. Purves, James Lowell  and Jonathan Henderson](https://pdfs.semanticscholar.org/31fc/111a17fc859750a664b0f4be5b60890b427d.pdf)
 * [an exponential grayscale cmap by Matteo Niccoli](https://github.com/mycarta/Reproducing-exponential-grayscale-cmap)
@@ -202,14 +207,14 @@ code:
 # Features of colormaps:
 * number of the gradient segments
 * monotonicy of the lightness 
-* function of color channel and the gradient segment: linear / nonlinear
+* function of color channel and the gradient segment: linear / nonlinear ( = interpolation between nodes)
 * cyclic / non-cyclic
 * type and a range of the numbers: 
   * unsigned char and [0 ; 255]
   * double and [0.0 ; 1.0 ]
 * length of the numbers array ( proportional to precision of nonlinear function approximation. for linear function 2 points are enough)
 * perceptual uniformity means that all pairs of adjacent colors will look equally different from each other 
-
+* [Colour-vision-deficiency (CVD) friendly](http://www.fabiocrameri.ch/resources/%2BREADME_ScientificColourmaps.pdf)
 
 
 
@@ -247,7 +252,7 @@ Names:
 
 Tools:
 * gedit : replace "," with \t 
-* LibreOffice Calc ( opens cvs files, choose columns, remove columns))
+* LibreOffice Calc ( opens cvs files, choose columns, remove columns)), see [note about importing scv files for polish settings by Mirosław Zalewski](http://przepis-na-lo.pl/2013/05/poprawne-rozpoznawanie-liczb-skopiowanych-z-internetu/)
 
 ## How to convert between gradient files?
 * [cptutils by JJ Green](http://soliton.vm.bytemark.co.uk/pub/jjg/en/code/cptutils/)
@@ -262,7 +267,8 @@ Tools:
 
 [Relative luminance is formed as a weighted sum of linear RGB components](https://en.wikipedia.org/wiki/Luma_(video))
 
-$`Y = 0.2126 R + 0.7152 G + 0.0722 B`$
+* $`Y = 0.2126 R + 0.7152 G + 0.0722 B`$
+* Y = 0,2126*R + 0,7152*G + 0,0722*B ( text version for pl settings)
 
 
 
@@ -304,14 +310,27 @@ $`Y = 0.2126 R + 0.7152 G + 0.0722 B`$
 * [Peter Kovesi](https://www.peterkovesi.com/)
   * [Perceptually Uniform Colour Maps](https://peterkovesi.com/projects/colourmaps/)
   * [matlab functions](https://www.peterkovesi.com/matlabfns/index.html#colour)
+* [Fabio Crameri](http://www.fabiocrameri.ch/colourmaps.php)
 ## www
 * [khan academy:  color science by Pixar](https://www.khanacademy.org/partner-content/pixar/color)
 
 
+## mesh gradients
+* [svg](https://graphicdesign.stackexchange.com/questions/105403/svg-gradient-implementation)
+* [svg](http://libregraphicsworld.org/blog/entry/gradient-meshes-and-hatching-to-be-removed-from-svg-2-0)
+* [haskell](https://twinside.github.io/coon_rendering.html)
+* [imscape](https://wiki.inkscape.org/wiki/index.php/Mesh_Gradients)
+  * [experiment](http://www.chrishilbig.com/mesh-gradients/)
+  * [creating](http://write.flossmanuals.net/start-with-inkscape/creating-a-mesh-gradient/)
+* [SVG Mesh Polyfill in js by Tavmjong Bah](http://tavmjong.free.fr/SVG/POLYFILL/MESH/mesh.html)
+  * [gitlab](https://gitlab.com/Tavmjong/mesh.js)
+  * [blog](http://tavmjong.free.fr/blog/?p=1554)
 
 
+Formats: .sketch, .png, .ai, .jpg, .eps
 
-
+Interpolation:
+* linear 
 
 
 
