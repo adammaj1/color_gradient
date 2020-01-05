@@ -373,6 +373,27 @@ void GiveColorCoolWarm(double position, unsigned char c[]){
 }
 
 
+
+void GiveGrayGammaColor(double position, unsigned char c[]){
+/*
+#from gnuplot
+gamma = 2.2
+color(gray) = gray**(1./gamma)
+set palette model RGB functions color(gray), color(gray), color(gray) # A gamma-corrected black and white palette
+	
+*/	double gamma = 2.2;
+	double p = pow(position, 1.0/gamma);
+	unsigned char X =  255*p;
+	// change range 
+	c[0] = X; //R
+	c[1] = X; // G
+	c[2] = X; // B	
+	
+
+}
+
+
+
 //
 int GiveColor(double position, int n, unsigned char c[]){
 
@@ -388,6 +409,7 @@ int GiveColor(double position, int n, unsigned char c[]){
 	case 7: {GiveColorGreen(position,c); break;}
 	case 8: {GiveLinas2Color(position,c); break;}
 	case 9: {GiveColorCoolWarm(position,c); break;}
+	case 10: {GiveGrayGammaColor(position,c); break;}
 	default:{GiveRainbowColor(position, c);}
 	}
 	
@@ -562,7 +584,7 @@ int main (){
 	int n;
 	setup();
 	//
-	for (n = 0; n< 10; ++n)
+	for (n = 0; n< 11; ++n)
 		MakeGradientImage(data, n);
 	
 	end();

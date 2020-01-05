@@ -6,7 +6,7 @@ set terminal png
 
 # list of gradient names;  update it maually
 # gnuplot array is numbered from 1 to words(array), not like c arrays
-titles = "Rainbow Linas Magma GrayL GrayNL2 GrayNL3 GraySqrt Green NewLinas CoolWarm"
+titles = "Rainbow Linas Magma GrayL GrayNL2 GrayNL3 GraySqrt Green NewLinas CoolWarm GrayGamma"
 
 # length of array titles = nMax, but tex files are numbered from 0 to nMax-1 ( c style)
 nMax = words(titles) -1 

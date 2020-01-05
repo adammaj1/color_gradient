@@ -18,6 +18,7 @@ What should and what should not do colormap/gradient in scientific visualisation
 * Green = 7
 * Linas2 = 8
 * CoolWarm diverging = 9 
+* GrayGamma = 10
 
 ## Rainbow colormap ( sawtooth rainbow)
 ![](600.png "Rainbow gradient ( colormap)")  
@@ -129,6 +130,21 @@ see also:
 ![](605.png "GrayNL3 gradient ( colormap)")  
 ![](5.png "RGB profiles of the GrayNL3 colormap")  
 
+## GrayGamma 
+Nonlinear gamma-corrected black and white palette
+
+![](610.png "GrayGamma gradient ( colormap)")  
+![](10.png "RGB profiles of the GrayGamma colormap")  
+
+
+It is from gnuplot:
+```gnuplot
+gamma = 2.2
+color(gray) = gray**(1./gamma)
+set palette model RGB functions color(gray), color(gray), color(gray) # A gamma-corrected black and white palette
+
+```
+
 ## GraySqrt colormap
 ![](606.png "GraySqrt gradient ( colormap)")  
 ![](6.png "RGB profiles of the GraySqrt colormap")  
@@ -206,8 +222,9 @@ code:
 
 # Features of colormaps:
 * number of the gradient segments
+* direction ( increasing/decreasing)
 * monotonicy of the lightness 
-* function of color channel and the gradient segment: linear / nonlinear ( = interpolation between nodes)
+* function of color channel and the gradient segment: linear / nonlinear ( related what function is used for the interpolation between nodes)
 * cyclic / non-cyclic
 * type and a range of the numbers: 
   * unsigned char and [0 ; 255]
@@ -302,14 +319,18 @@ Tools:
 * [Berkeley Institute for Data Science colormaps](https://github.com/BIDS/colormap/blob/master/colormaps.py)
 * [scivis color](https://sciviscolor.org/resources/)
 
+## css gradients
+* [Program do generowania gradientów w formacie Gimpa, css i Inkscape-a](https://www.obliczeniowo.com.pl/156)
+
 ## People
+* [Peter Kovesi](https://www.peterkovesi.com/)
+  * [Perceptually Uniform Colour Maps](https://peterkovesi.com/projects/colourmaps/)
+  * [matlab functions](https://www.peterkovesi.com/matlabfns/index.html#colour)
+* [Jim J  Green](http://soliton.vm.bytemark.co.uk/pub/jjg/en/)
 * [Kenneth Moreland](http://www.kennethmoreland.com/)
   * [BadColorMaps](http://www.kennethmoreland.com/color-advice/BadColorMaps.pdf)
   * [Diverging Color Maps for Scientific Visualization](http://www.kennethmoreland.com/color-maps/)
 * [Colin Ware](https://ccom.unh.edu/vislab/colin_ware.html)
-* [Peter Kovesi](https://www.peterkovesi.com/)
-  * [Perceptually Uniform Colour Maps](https://peterkovesi.com/projects/colourmaps/)
-  * [matlab functions](https://www.peterkovesi.com/matlabfns/index.html#colour)
 * [Fabio Crameri](http://www.fabiocrameri.ch/colourmaps.php)
 ## www
 * [khan academy:  color science by Pixar](https://www.khanacademy.org/partner-content/pixar/color)
