@@ -131,15 +131,16 @@ Examples of use: [Linas art gallery - my version of Linas programs with old grad
 ![](./images/614.png "GrayLWave gradient ( colormap)")  
 ![](./images/14.png "RGB profiles of the GrayLWave colormap")    
 
-
-![](./images/615.png "GrayLWave not inverted gradient ( colormap)")  
-![](./images/15.png "RGB profiles of the GrayLWave not inverted colormap")    
-
 Example image with use of such gradient:  
 
 ![](./images/siegel.png "")  
 
 code and description is in the [commons](https://commons.wikimedia.org/wiki/File:Quadratic_Golden_Mean_Siegel_Disc_Average_Velocity_-_Gray.png)
+
+
+![](./images/615.png "GrayLWave inverted gradient ( colormap)")  
+![](./images/15.png "RGB profiles of the GrayLWave inverted colormap")    
+
 
 see also:
 * [Perception of visual information: the role of colour in seismic interpretation by  Barbara Froner, Stephen J. Purves, James Lowell  and Jonathan Henderson](https://pdfs.semanticscholar.org/31fc/111a17fc859750a664b0f4be5b60890b427d.pdf)
