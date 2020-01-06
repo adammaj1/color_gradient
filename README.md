@@ -8,7 +8,7 @@ What should and what should not do colormap/gradient in scientific visualisation
 
   
 # Examples
-Numbers from function GiveColor from p.c and array titles from plot.gp
+Numbers from function GiveColor from [p.c](./src/p.c) and array titles from [plot.gp](./src/plot.gp)
 * 0 = Rainbow 
 * 1 = Linas
 * 2 = Magma 
@@ -42,7 +42,7 @@ Features of rainbow gradient:
 * non monotone ( see black curve) 
 * complex = consist of 6 monotone segments ( ramps). Graph of the lightness looks like [saw with  plain tooth pattern](https://en.wikipedia.org/wiki/Crosscut_saw) or [triangle sawtooth wave](https://en.wikipedia.org/wiki/Sawtooth_wave)
 
-c function = GiveRainbowColor from [p.c file](p.c)
+c function = GiveRainbowColor from [p.c file](./src/p.c)
 
 
 
@@ -103,8 +103,8 @@ Result:
 
 
 C code for Linas gradient:
-* old (= bad):  funcion GiveLinasColor from [p.c](p.c)
-* new (= good): function GiveLinas2Color from [p.c](p.c)
+* old (= bad):  funcion GiveLinasColor from [p.c](./src/p.c)
+* new (= good): function GiveLinas2Color from [p.c](./src/p.c)
 
 
 
@@ -201,7 +201,7 @@ Description by [Kenneth Moreland ](http://www.kennethmoreland.com/color-advice/)
 
 
 code:  
-* funcion GiveColorCoolWarm from [p.c](p.c)
+* funcion GiveColorCoolWarm from [p.c](./src/p.c)
 * [diverging_map_gnuplot.pal](diverging_map_gnuplot.pal) - gnuplot palette file
 
 
@@ -331,8 +331,8 @@ ntsc = 0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b;
 
 # files
 ## programs
-* [p.c](p.c) - c program which creates 60n.png files and n.txt files 
-* [plot.gp](plot.gp) - gnuplot program which converts n.png fils from n.txt files
+* [p.c](./src/p.c) - c program which creates 60n.png files and n.txt files 
+* [plot.gp](./src/plot.gp) - gnuplot program which converts n.png fils from n.txt files
 ## palettes
 * [diverging_map_gnuplot.pal](diverging_map_gnuplot.pal) 
 
