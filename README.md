@@ -8,21 +8,29 @@ What should and what should not do colormap/gradient in scientific visualisation
 
   
 # Examples
-* Rainbow = 0
-* Linas = 1
-* Magma = 2
-* GrayL = 3
-* GrayNL2 = 4
-* GrayNL3 = 5
-* GraySqrt = 6
-* Green = 7
-* Linas2 = 8
-* CoolWarm diverging = 9 
-* GrayGamma = 10
+Numbers from function GiveColor from p.c and array titles from plot.gp
+* 0 = Rainbow 
+* 1 = Linas
+* 2 = Magma 
+* 3 = GrayL 
+* 4 = GrayNL2 
+* 5 = GrayNL3 
+* 6 = GraySqrt 
+* 7 = Green 
+* 8 = Linas2 
+* 9 = CoolWarm diverging 
+* 10 = GrayGamma 
+* 11 = GrayNL3Wave2
+* 12 = GrayNL3Wave10
+* 13 = GraySqrtWave
+* 14 = GrayLWave
+* 15 = GrayLWaveInverted
+* 16 = GrayNL3Wave5NonInv
+
 
 ## Rainbow colormap ( sawtooth rainbow)
-![](600.png "Rainbow gradient ( colormap)")  
-![](0.png "RGB profiles of the rainbow colormap")  
+![](./images/600.png "Rainbow gradient ( colormap)")  
+![](/images0.png "RGB profiles of the rainbow colormap")  
 
 Compare with [gnuplot image](https://commons.wikimedia.org/wiki/File:Gnuplot_HSV_gradient.png)  
 
@@ -312,7 +320,7 @@ Tools:
 ```c
 //from function test_palette_subcommand from the file gnuplot/src/command.c
 ntsc = 0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b;
-
+```
 
 
 ### Cielab lightness
