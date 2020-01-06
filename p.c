@@ -393,8 +393,80 @@ set palette model RGB functions color(gray), color(gray), color(gray) # A gamma-
 }
 
 
+void GiveGrayColorNL3Wave2(double position, unsigned char c[]){
+	
+	int segments=2;
+	position= segments*position;
+	/* if position > 1 then we have repetition of colors it maybe useful    */
+      	if (position>1.0)
+      		{	int p = (int)position;
+      			position=position-p; // fractional part 
+      			if (p % 2)
+      				{position = 1.0-position;} // reverse gradient
+		}
+				 
 
-//
+	unsigned char X =  255- 255*(position*position*position);
+	// change range 
+	c[0] = X; //R
+	c[1] = X; // G
+	c[2] = X; // B	
+	
+
+}
+
+
+
+
+void GiveGrayColorNL3Wave10(double position, unsigned char c[]){
+	
+	int segments=10;
+	position= segments*position;
+	/* if position > 1 then we have repetition of colors it maybe useful    */
+      	if (position>1.0)
+      		{	int p = (int)position;
+      			position=position-p; // fractional part 
+      			if (p % 2)
+      				{position = 1.0-position;} // reverse gradient
+		}
+				 
+
+	unsigned char X =  255- 255*(position*position*position);
+	// change range 
+	c[0] = X; //R
+	c[1] = X; // G
+	c[2] = X; // B	
+	
+
+}
+
+
+
+void GiveGrayColorSqrtWave(double position, unsigned char c[]){
+	int segments=10;
+	position= segments*position;
+	/* if position > 1 then we have repetition of colors it maybe useful    */
+      	if (position>1.0)
+      		{	int p = (int)position;
+      			position=position-p; // fractional part 
+      			if (p % 2)
+      				{position = 1.0-position;} // reverse gradient
+		}
+				 
+
+	
+	unsigned char X =  255*sqrt(position);
+	// change range 
+	c[0] = X; //R
+	c[1] = X; // G
+	c[2] = X; // B	
+	
+
+}
+
+
+
+// remember to update nMax in main function
 int GiveColor(double position, int n, unsigned char c[]){
 
 	switch(n){
@@ -410,6 +482,9 @@ int GiveColor(double position, int n, unsigned char c[]){
 	case 8: {GiveLinas2Color(position,c); break;}
 	case 9: {GiveColorCoolWarm(position,c); break;}
 	case 10: {GiveGrayGammaColor(position,c); break;}
+	case 11: {GiveGrayColorNL3Wave2(position,c); break;}
+	case 12: {GiveGrayColorNL3Wave10(position,c); break;}
+	case 13: {GiveGrayColorSqrtWave(position,c); break;}
 	default:{GiveRainbowColor(position, c);}
 	}
 	
@@ -585,9 +660,10 @@ int end(){
 int main (){
 
 	int n;
+	int nMax = 14; // see GiveColor function
 	setup();
 	//
-	for (n = 0; n< 11; ++n)
+	for (n = 0; n< nMax; ++n)
 		MakeGradientImage(data, n);
 	
 	end();

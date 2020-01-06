@@ -130,6 +130,16 @@ see also:
 ![](605.png "GrayNL3 gradient ( colormap)")  
 ![](5.png "RGB profiles of the GrayNL3 colormap")  
 
+
+Gradient can be inverted and joined:
+![](611.png " 1 wave ( 2 segments) GrayNL3 gradient ( colormap)")  
+![](11.png "RGB profiles of the 1 wave ( 2 segments) GrayNL3 colormap")  
+
+![](612.png "5 waves ( 10 segments) GrayNL3 gradient ( colormap)")  
+![](12.png "RGB profiles of the 5 waves GrayNL3 colormap")  
+
+
+
 ## GrayGamma 
 Nonlinear gamma-corrected black and white palette
 
@@ -148,6 +158,15 @@ set palette model RGB functions color(gray), color(gray), color(gray) # A gamma-
 ## GraySqrt colormap
 ![](606.png "GraySqrt gradient ( colormap)")  
 ![](6.png "RGB profiles of the GraySqrt colormap")  
+
+
+ 
+
+![](613.png "wave (composite) GraySqrt gradient ( colormap)")  
+![](13.png "RGB profiles of the wave (composite) GraySqrt colormap")  
+
+
+
 
 ## Green colormap
 ![](607.png "Green gradient ( colormap)")  
@@ -280,12 +299,18 @@ Tools:
 ## Lightness
 * [How to Determine Lightness by Reda Lemeden](https://thoughtbot.com/blog/closer-look-color-lightness#how-to-determine-lightness)
 * [stackoverflow question: formula-to-determine-brightness-of-rgb-color](https://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color)
-          
+* desaturation = Converting color to [grayscale](https://en.wikipedia.org/wiki/Grayscale)
+  * [Three algorithms for converting color to grayscale by John D. Cook](https://www.johndcook.com/blog/2009/08/24/algorithms-convert-color-grayscale/)          
+  * [gimp 2.6 doc](https://docs.gimp.org/2.6/en/gimp-tool-desaturate.html)
+  * [stackoverflow question : Standard-rgb-to-grayscale-conversion](https://stackoverflow.com/questions/17615963/standard-rgb-to-grayscale-conversion)
+  * [Conversion to grayscale by Jason Summers](https://entropymine.com/imageworsener/grayscale/)
 
 [Relative luminance is formed as a weighted sum of linear RGB components](https://en.wikipedia.org/wiki/Luma_(video))
 
-* $`Y = 0.2126 R + 0.7152 G + 0.0722 B`$
-* Y = 0,2126*R + 0,7152*G + 0,0722*B ( text version for pl settings)
+
+```c
+//from function test_palette_subcommand from the file gnuplot/src/command.c
+ntsc = 0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b;
 
 
 
