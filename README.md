@@ -131,7 +131,8 @@ see also:
 ![](5.png "RGB profiles of the GrayNL3 colormap")  
 
 
-Gradient can be inverted and joined:
+Gradient can be inverted and joined:  
+
 ![](611.png " 1 wave ( 2 segments) GrayNL3 gradient ( colormap)")  
 ![](11.png "RGB profiles of the 1 wave ( 2 segments) GrayNL3 colormap")  
 
@@ -160,7 +161,7 @@ set palette model RGB functions color(gray), color(gray), color(gray) # A gamma-
 ![](6.png "RGB profiles of the GraySqrt colormap")  
 
 
- 
+ Gradient can be inverted and joined:  
 
 ![](613.png "wave (composite) GraySqrt gradient ( colormap)")  
 ![](13.png "RGB profiles of the wave (composite) GraySqrt colormap")  
