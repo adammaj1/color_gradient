@@ -435,8 +435,11 @@ void PrintColor( FILE *fp, double position, unsigned char color[]){
 	double R = color[0]/255.0; 
 	double G = color[1]/255.0;
 	double B = color[2]/255.0;
-	// [Relative luminance is formed as a weighted sum of linear RGB components](https://en.wikipedia.org/wiki/Luma_(video)) Y = 0.2126 R + 0.7152 G + 0.0722 B
-	double Y = 0.2126*R + 0.7152*G + 0.0722*B;
+	// [Relative luminance is formed as a weighted sum of linear RGB components](https://en.wikipedia.org/wiki/Luma_(video)) 
+	// 
+	//from function test_palette_subcommand from file gnuplot/src/command.c test_palette_subcommand
+	//ntsc = 0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b;
+	double Y = 0.299*R + 0.587*G + 0.114*B;
 	
 	fprintf(fp, "%f\t %f\t%f\t%f \t %f \n", position, R,G,B,Y);
 

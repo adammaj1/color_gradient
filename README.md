@@ -314,6 +314,8 @@ Tools:
 * [color gradient](https://imagemagick.org/script/gradient.php)
 
 ## python colormaps
+* [Palettable = Color palettes for Python by Matt Davis](https://jiffyclub.github.io/palettable/)
+* [A full implementation of Dave Green's "cubehelix" colormap for Python by James Davenport](https://github.com/jradavenport/cubehelix)
 * [python colormaps](http://www-personal.umich.edu/~mejn/computational-physics/colormaps.py)
 * [paraview](https://gitlab.kitware.com/paraview/paraview/blob/master/Wrapping%2FPython%2Fparaview%2F_colorMaps.py)
 * [Berkeley Institute for Data Science colormaps](https://github.com/BIDS/colormap/blob/master/colormaps.py)
