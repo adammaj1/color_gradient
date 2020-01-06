@@ -48,7 +48,7 @@ Features of rainbow gradient:
 * non monotone ( see black curve) 
 * complex = consist of 6 monotone segments ( ramps). Graph of the lightness looks like [saw with  plain tooth pattern](https://en.wikipedia.org/wiki/Crosscut_saw) or [triangle sawtooth wave](https://en.wikipedia.org/wiki/Sawtooth_wave)
 
-c function = GiveRainbowColor from [p.c file](./src/p.c)
+c function = GiveRainbowColor from [p.c file](./src/p.c)  
 
 
 
@@ -121,6 +121,9 @@ Examples of use: [Linas art gallery - my version of Linas programs with old grad
 ## Magma colormap
 ![](./images/602.png "Magma gradient ( colormap)")  
 ![](./images/2.png "RGB profiles of the Magma colormap")    
+
+c function = GiveMagmaColor from [p.c file](./src/p.c)
+
   
 
 ## GrayL colormap
@@ -128,10 +131,17 @@ Examples of use: [Linas art gallery - my version of Linas programs with old grad
 ![](./images/3.png "RGB profiles of the GrayL colormap")    
 
 
+c function = GiveGrayColorL from [p.c file](./src/p.c)
+
+
+
 Effect of joining gradients ( segments of the same gradeint combined):   
 
 ![](./images/614.png "GrayLWave gradient ( colormap)")  
 ![](./images/14.png "RGB profiles of the GrayLWave colormap")    
+
+c function = GiveGrayColorLWave from [p.c file](./src/p.c)
+
 
 Example image with use of such gradient:  
 
@@ -145,13 +155,16 @@ Effect of joining gradients ( pairs of plain and inverted gradients ):
 ![](./images/15.png "RGB profiles of the GrayLWave inverted colormap")    
 
 
+c function = GiveGrayColorLWaveInverted from [p.c file](./src/p.c)
+
+
 see also:
 * [Perception of visual information: the role of colour in seismic interpretation by  Barbara Froner, Stephen J. Purves, James Lowell  and Jonathan Henderson](https://pdfs.semanticscholar.org/31fc/111a17fc859750a664b0f4be5b60890b427d.pdf)
 * [an exponential grayscale cmap by Matteo Niccoli](https://github.com/mycarta/Reproducing-exponential-grayscale-cmap)
 * [sigmoid grayscale colormaps](https://github.com/mycarta/Sigmoid_app)
 ## GrayNL2 colormap
-![](./images/604.png "Linas gradient ( colormap)")  
-![](./images/4.png "RGB profiles of the Linas colormap")  
+![](./images/604.png "GrayNL2 gradient ( colormap)"")  
+![](./images/4.png "RGB profiles of the GrayNL2 colormap")  
 
 ## GrayNL3 colormap
 ![](./images/605.png "GrayNL3 gradient ( colormap)")  
