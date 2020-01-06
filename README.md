@@ -128,6 +128,8 @@ Examples of use: [Linas art gallery - my version of Linas programs with old grad
 ![](./images/3.png "RGB profiles of the GrayL colormap")    
 
 
+Effect of joining gradients ( segments of the same gradeint combined):   
+
 ![](./images/614.png "GrayLWave gradient ( colormap)")  
 ![](./images/14.png "RGB profiles of the GrayLWave colormap")    
 
@@ -137,6 +139,7 @@ Example image with use of such gradient:
 
 code and description is in the [commons](https://commons.wikimedia.org/wiki/File:Quadratic_Golden_Mean_Siegel_Disc_Average_Velocity_-_Gray.png)
 
+Effect of joining gradients ( pairs of plain and inverted gradients ):   
 
 ![](./images/615.png "GrayLWave inverted gradient ( colormap)")  
 ![](./images/15.png "RGB profiles of the GrayLWave inverted colormap")    
