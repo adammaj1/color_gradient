@@ -122,7 +122,7 @@ Examples of use: [Linas art gallery - my version of Linas programs with old grad
 ![](./images/602.png "Magma gradient ( colormap)")  
 ![](./images/2.png "RGB profiles of the Magma colormap")    
 
-c function = GiveMagmaColor from [p.c file](./src/p.c)
+c function = GiveMagmaColor from [p.c file](./src/p.c)  
 
   
 
@@ -131,7 +131,7 @@ c function = GiveMagmaColor from [p.c file](./src/p.c)
 ![](./images/3.png "RGB profiles of the GrayL colormap")    
 
 
-c function = GiveGrayColorL from [p.c file](./src/p.c)
+c function = GiveGrayColorL from [p.c file](./src/p.c)  
 
 
 
@@ -140,7 +140,7 @@ Effect of joining gradients ( segments of the same gradeint combined):
 ![](./images/614.png "GrayLWave gradient ( colormap)")  
 ![](./images/14.png "RGB profiles of the GrayLWave colormap")    
 
-c function = GiveGrayColorLWave from [p.c file](./src/p.c)
+c function = GiveGrayColorLWave from [p.c file](./src/p.c)  
 
 
 Example image with use of such gradient:  
@@ -155,7 +155,7 @@ Effect of joining gradients ( pairs of plain and inverted gradients ):
 ![](./images/15.png "RGB profiles of the GrayLWave inverted colormap")    
 
 
-c function = GiveGrayColorLWaveInverted from [p.c file](./src/p.c)
+c function = GiveGrayColorLWaveInverted from [p.c file](./src/p.c)  
 
 
 see also:
@@ -166,18 +166,28 @@ see also:
 ![](./images/604.png "GrayNL2 gradient ( colormap)"")  
 ![](./images/4.png "RGB profiles of the GrayNL2 colormap")  
 
+c function = GiveGrayColorNL2 from [p.c file](./src/p.c)  
+
 ## GrayNL3 colormap
 ![](./images/605.png "GrayNL3 gradient ( colormap)")  
 ![](./images/5.png "RGB profiles of the GrayNL3 colormap")  
 
+c function = GiveGrayColorNL3 from [p.c file](./src/p.c  
 
 Gradient can be inverted and joined ( both inverted and not inverted part create one wave):  
 
 ![](./images/611.png " 1 wave ( 2 segments) GrayNL3 gradient ( colormap)")  
 ![](./images/11.png "RGB profiles of the 1 wave ( 2 segments) GrayNL3 colormap")  
 
+c function :
+* GiveGrayColorNL3Wave2 from [p.c file](./src/p.c)
+* GiveGrayColorNL3Wave10 from [p.c file](./src/p.c) 
+
+
 ![](./images/612.png "5 waves ( 10 segments) GrayNL3 gradient ( colormap)")  
 ![](./images/12.png "RGB profiles of the 5 waves GrayNL3 colormap")  
+
+
 
 Not inverted:
 
@@ -185,7 +195,7 @@ Not inverted:
 ![](./images/16.png "RGB profiles of the 2.5 waves GrayNL3 not inverted colormap")  
 
 
-
+c function = GiveGrayColorNL3Wave5NonInv from [p.c file](./src/p.c)  
 ## GrayGamma 
 Nonlinear gamma-corrected black and white palette
 
@@ -201,17 +211,21 @@ set palette model RGB functions color(gray), color(gray), color(gray) # A gamma-
 
 ```
 
+c function = GiveGrayGammaColor from [p.c file](./src/p.c)  
+
 ## GraySqrt colormap
 ![](./images/606.png "GraySqrt gradient ( colormap)")  
 ![](./images/6.png "RGB profiles of the GraySqrt colormap")  
 
+c function = GiveGrayColorSqrt from [p.c file](./src/p.c)  
 
- Gradient can be inverted and joined:  
+
+Gradient can be inverted and joined:  
 
 ![](./images/613.png "wave (composite) GraySqrt gradient ( colormap)")  
 ![](./images/13.png "RGB profiles of the wave (composite) GraySqrt colormap")  
 
-
+c function = GiveGrayColorSqrtWave from [p.c file](./src/p.c)  
 
 
 ## Green colormap
@@ -219,7 +233,7 @@ set palette model RGB functions color(gray), color(gray), color(gray) # A gamma-
 ![](./images/7.png "RGB profiles of the Green colormap")  
 
 
-
+c function = GiveColorGreen from [p.c file](./src/p.c)  
 
 ![](./images/julia85.png "Example of use Green gradient ( colormap)")  
 
