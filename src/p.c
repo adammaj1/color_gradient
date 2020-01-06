@@ -1,24 +1,16 @@
 /*
 
-How do I get the length of a dynamically allocated array in C? You can't.  You have to pass the length as a parameter to your function.
-https://stackoverflow.com/questions/5126353/get-the-length-of-dynamically-allocated-array-in-c
 
--------------------
-
-
---------------
-
-
+=============================
 gcc p.c -Wall -lm
 
-./a.out >a.txt
+./a.out 
 
-ls -l *.ppm
+gnuplot plot.gp
+
 
 ===================
- plot "1.txt" using 1:2 with  linespoint title "R"
-gnuplot> plot "1.txt" using 1:3 with  linespoint title "G"
-gnuplot> plot "1.txt" using 1:4 with  linespoint title "B"
+
 
 
 
