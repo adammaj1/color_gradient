@@ -30,11 +30,11 @@ Numbers from function GiveColor from p.c and array titles from plot.gp
 
 ## Rainbow colormap ( sawtooth rainbow)
 ![](./images/600.png "Rainbow gradient ( colormap)")  
-![](/images0.png "RGB profiles of the rainbow colormap")  
+![](./images/0.png "RGB profiles of the rainbow colormap")  
 
 Compare with [gnuplot image](https://commons.wikimedia.org/wiki/File:Gnuplot_HSV_gradient.png)  
 
-![](Gnuplot_HSV_gradient.png "RGB profiles and image of the HSV gradient made with gnuplot")  
+![](./images/Gnuplot_HSV_gradient.png "RGB profiles and image of the HSV gradient made with gnuplot")  
 
 It looks similar. sawtooth-shaped lightness profile made up of 5 ramp
 
@@ -51,8 +51,8 @@ See also:
 * 
 
 ## Linas colormap
-![](601.png "Old Linas gradient ( colormap)")  
-![](1.png "RGB profiles of the old Linas colormap")  
+![](./images/601.png "Old Linas gradient ( colormap)")  
+![](./images/1.png "RGB profiles of the old Linas colormap")  
 
 
 >Your new colormap is different and ugly-ish. The line between red-and-yellow is much much worse than before.  the red-yellow discontinuity is ... confusing, annoying. .. to me, at least. Linas
@@ -96,8 +96,8 @@ Now one can compute: 4 functions for each color channel ( 12 functions) using [p
 Result:   
 
 
-![](608.png "New Linas gradient ( colormap)")  
-![](8.png "RGB profiles of the New Linas colormap")  
+![](./images/608.png "New Linas gradient ( colormap)")  
+![](./images/8.png "RGB profiles of the New Linas colormap")  
 
 
 
@@ -113,13 +113,13 @@ Examples of use: [Linas art gallery - my version of Linas programs with old grad
     
     
 ## Magma colormap
-![](602.png "Magma gradient ( colormap)")  
-![](2.png "RGB profiles of the Magma colormap")    
+![](./images/602.png "Magma gradient ( colormap)")  
+![](./images/2.png "RGB profiles of the Magma colormap")    
   
 
 ## GrayL colormap
-![](603.png "GrayL gradient ( colormap)")  
-![](3.png "RGB profiles of the GrayL colormap")    
+![](./images/603.png "GrayL gradient ( colormap)")  
+![](./images/3.png "RGB profiles of the GrayL colormap")    
 
 
 
@@ -131,29 +131,29 @@ see also:
 * [an exponential grayscale cmap by Matteo Niccoli](https://github.com/mycarta/Reproducing-exponential-grayscale-cmap)
 * [sigmoid grayscale colormaps](https://github.com/mycarta/Sigmoid_app)
 ## GrayNL2 colormap
-![](604.png "Linas gradient ( colormap)")  
-![](4.png "RGB profiles of the Linas colormap")  
+![](./images/604.png "Linas gradient ( colormap)")  
+![](./images/4.png "RGB profiles of the Linas colormap")  
 
 ## GrayNL3 colormap
-![](605.png "GrayNL3 gradient ( colormap)")  
-![](5.png "RGB profiles of the GrayNL3 colormap")  
+![](./images/605.png "GrayNL3 gradient ( colormap)")  
+![](./images/5.png "RGB profiles of the GrayNL3 colormap")  
 
 
 Gradient can be inverted and joined:  
 
-![](611.png " 1 wave ( 2 segments) GrayNL3 gradient ( colormap)")  
-![](11.png "RGB profiles of the 1 wave ( 2 segments) GrayNL3 colormap")  
+![](./images/611.png " 1 wave ( 2 segments) GrayNL3 gradient ( colormap)")  
+![](./images/11.png "RGB profiles of the 1 wave ( 2 segments) GrayNL3 colormap")  
 
-![](612.png "5 waves ( 10 segments) GrayNL3 gradient ( colormap)")  
-![](12.png "RGB profiles of the 5 waves GrayNL3 colormap")  
+![](./images/612.png "5 waves ( 10 segments) GrayNL3 gradient ( colormap)")  
+![](./images/12.png "RGB profiles of the 5 waves GrayNL3 colormap")  
 
 
 
 ## GrayGamma 
 Nonlinear gamma-corrected black and white palette
 
-![](610.png "GrayGamma gradient ( colormap)")  
-![](10.png "RGB profiles of the GrayGamma colormap")  
+![](./images/610.png "GrayGamma gradient ( colormap)")  
+![](./images/10.png "RGB profiles of the GrayGamma colormap")  
 
 
 It is from gnuplot:
@@ -165,26 +165,26 @@ set palette model RGB functions color(gray), color(gray), color(gray) # A gamma-
 ```
 
 ## GraySqrt colormap
-![](606.png "GraySqrt gradient ( colormap)")  
-![](6.png "RGB profiles of the GraySqrt colormap")  
+![](./images/606.png "GraySqrt gradient ( colormap)")  
+![](./images/6.png "RGB profiles of the GraySqrt colormap")  
 
 
  Gradient can be inverted and joined:  
 
-![](613.png "wave (composite) GraySqrt gradient ( colormap)")  
-![](13.png "RGB profiles of the wave (composite) GraySqrt colormap")  
+![](./images/613.png "wave (composite) GraySqrt gradient ( colormap)")  
+![](./images/13.png "RGB profiles of the wave (composite) GraySqrt colormap")  
 
 
 
 
 ## Green colormap
-![](607.png "Green gradient ( colormap)")  
-![](7.png "RGB profiles of the Green colormap")  
+![](./images/607.png "Green gradient ( colormap)")  
+![](./images/7.png "RGB profiles of the Green colormap")  
 
 
 
 
-![](julia85.png "Example of use Green gradient ( colormap)")  
+![](./images/julia85.png "Example of use Green gradient ( colormap)")  
 
 More is here:
 * [commons](https://commons.wikimedia.org/wiki/File:Julia_set_for_f(z)_%3D_z%5E2%2B0.355534_-0.337292*i.png)
@@ -192,8 +192,8 @@ More is here:
 
 
 ##  Smooth CoolWarm diverging colormap 
-![](609.png "CoolWarm diverging gradient ( colormap)")  
-![](9.png "RGB profiles of the CoolWarm colormap")  
+![](./images/609.png "CoolWarm diverging gradient ( colormap)")  
+![](./images/9.png "RGB profiles of the CoolWarm colormap")  
 
 Description by [Kenneth Moreland ](http://www.kennethmoreland.com/color-advice/)  
 * blue-red diverging 
@@ -445,6 +445,21 @@ git push -u origin master
 
 ```
   git clone git@gitlab.com:adammajewski/color_gradient.git
+```
+
+Subdirectory
+
+```git
+mkdir images
+git add *.png
+git mv  *.png ./images
+git commit -m "move"
+git push -u origin master
+```
+then link tje image:
+
+```txt
+![](./images/n.png "description") 
 ```
 
 
