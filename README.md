@@ -8,6 +8,12 @@ What should and what should not do colormap/gradient in scientific visualisation
 
   
 # Examples
+All images are made with:
+* c console program [p.c](./src/p.c) 
+* Image Magic convert console program
+* gnuplot script [plot.gp](./src/plot.gp)
+
+
 Numbers from function GiveColor from [p.c](./src/p.c) and array titles from [plot.gp](./src/plot.gp)
 * 0 = Rainbow 
 * 1 = Linas
@@ -122,9 +128,12 @@ Examples of use: [Linas art gallery - my version of Linas programs with old grad
 ![](./images/3.png "RGB profiles of the GrayL colormap")    
 
 
+![](./images/614.png "GrayLWave gradient ( colormap)")  
+![](./images/14.png "RGB profiles of the GrayLWave colormap")    
 
 
-
+![](./images/615.png "GrayLWave not inverted gradient ( colormap)")  
+![](./images/15.png "RGB profiles of the GrayLWave not inverted colormap")    
 
 see also:
 * [Perception of visual information: the role of colour in seismic interpretation by  Barbara Froner, Stephen J. Purves, James Lowell  and Jonathan Henderson](https://pdfs.semanticscholar.org/31fc/111a17fc859750a664b0f4be5b60890b427d.pdf)
@@ -139,13 +148,18 @@ see also:
 ![](./images/5.png "RGB profiles of the GrayNL3 colormap")  
 
 
-Gradient can be inverted and joined:  
+Gradient can be inverted and joined ( both inverted and not inverted part create one wave):  
 
 ![](./images/611.png " 1 wave ( 2 segments) GrayNL3 gradient ( colormap)")  
 ![](./images/11.png "RGB profiles of the 1 wave ( 2 segments) GrayNL3 colormap")  
 
 ![](./images/612.png "5 waves ( 10 segments) GrayNL3 gradient ( colormap)")  
 ![](./images/12.png "RGB profiles of the 5 waves GrayNL3 colormap")  
+
+Not inverted:
+
+![](./images/616.png "2.5 waves ( 5 segments) GrayNL3 not invertedgradient ( colormap)")  
+![](./images/16.png "RGB profiles of the 2.5 waves GrayNL3 not inverted colormap")  
 
 
 
