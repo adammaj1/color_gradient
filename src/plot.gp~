@@ -7,7 +7,7 @@ set terminal png
 # list of gradient names;  update it maually
 # gnuplot array is numbered from 1 to words(array), not like c arrays
 # update list with order as in function GiveColor from p.c
-titles = "Rainbow Linas Magma GrayL GrayNL2 GrayNL3 GraySqrt Green NewLinas CoolWarm GrayGamma GrayNL3Wave2 GrayNL3Wave10 GraySqrtWave ColorLWave ColorLWaveInverted NL3Wave5NonInv"
+titles = "Rainbow Linas Magma GrayL GrayNL2 GrayNL3 GraySqrt Green NewLinas CoolWarm GrayGamma GrayNL3Wave2 GrayNL3Wave10 GraySqrtWave  "
 
 
 

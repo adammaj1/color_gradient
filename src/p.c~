@@ -466,85 +466,7 @@ void GiveGrayColorSqrtWave(double position, unsigned char c[]){
 
 
 
-
-
-void GiveGrayColorLWave(double position, unsigned char c[]){
-	
-	int segments=10;
-	position= segments*position;
-	/* if position > 1 then we have repetition of colors it maybe useful    */
-      	if (position>1.0)
-      		{	int p = (int)position;
-      			position=position-p; // fractional part 
-      			
-		}
-				 
-
-	unsigned char X =  255- 255*position;
-	// change range 
-	c[0] = X; //R
-	c[1] = X; // G
-	c[2] = X; // B	
-	
-
-}
-
-
-
-void GiveGrayColorLWaveInverted(double position, unsigned char c[]){
-	
-	int segments=10;
-	position= segments*position;
-	/* if position > 1 then we have repetition of colors it maybe useful    */
-      	if (position>1.0)
-      		{	int p = (int)position;
-      			position=position-p; // fractional part 
-      			if (p % 2)
-      				{position = 1.0-position;} // reverse gradient
-		}
-				 
-
-	unsigned char X =  255- 255*position;
-	// change range 
-	c[0] = X; //R
-	c[1] = X; // G
-	c[2] = X; // B	
-	
-
-}
-
-
-
-
-void GiveGrayColorNL3Wave5NonInv(double position, unsigned char c[]){
-	
-	int segments=5;
-	position= segments*position;
-	/* if position > 1 then we have repetition of colors it maybe useful    */
-      	if (position>1.0)
-      		{	int p = (int)position;
-      			position=position-p; // fractional part 
-      			
-		}
-				 
-
-	unsigned char X =  255- 255*(position*position*position);
-	// change range 
-	c[0] = X; //R
-	c[1] = X; // G
-	c[2] = X; // B	
-	
-
-}
-
-
-
-/* 
-remember to update : 
-* nMax in main function
-* titles in plot.gp
-*/
-
+// remember to update nMax in main function
 int GiveColor(double position, int n, unsigned char c[]){
 
 	switch(n){
@@ -563,9 +485,6 @@ int GiveColor(double position, int n, unsigned char c[]){
 	case 11: {GiveGrayColorNL3Wave2(position,c); break;}
 	case 12: {GiveGrayColorNL3Wave10(position,c); break;}
 	case 13: {GiveGrayColorSqrtWave(position,c); break;}
-	case 14: {GiveGrayColorLWave(position,c); break;}
-	case 15: {GiveGrayColorLWaveInverted(position,c); break;}
-	case 16: {GiveGrayColorNL3Wave5NonInv(position,c); break;}
 	default:{GiveRainbowColor(position, c);}
 	}
 	
@@ -741,7 +660,7 @@ int end(){
 int main (){
 
 	int n;
-	int nMax = 17; // see GiveColor function, it should be one more then max n in GiveColor
+	int nMax = 14; // see GiveColor function
 	setup();
 	//
 	for (n = 0; n< nMax; ++n)
