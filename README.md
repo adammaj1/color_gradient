@@ -4,7 +4,7 @@ What should and what should not do colormap/gradient in scientific visualisation
 * should highlight features of the data
 * should not highlight features that are not in the data but only in the gradient itself
   * ["Many colour maps provided by vendors have highly uneven perceptual contrast over their range. Colour maps may have points of locally high colour contrast leading to the perception of false anomalies in your data when there is none. Conversely colour maps may also have 'flat spots' of low perceptual contrast that prevent you from seeing features in the data." Peter Kovesi](https://peterkovesi.com/projects/colourmaps/)
-  * ["both obfuscate the data with artifacts that are not in the data and hide important features that are in the data" Kenneth Moreland](http://www.kennethmoreland.com/color-advice/BadColorMaps.pdf) 
+  * ["... obfuscate the data with artifacts that are not in the data and hide important features that are in the data" Kenneth Moreland](http://www.kennethmoreland.com/color-advice/BadColorMaps.pdf) 
 
   
 # Examples
@@ -34,15 +34,23 @@ Numbers from function GiveColor from [p.c](./src/p.c) and array titles from [plo
 * 16 = GrayNL3Wave5NonInv
 
 
-## Rainbow colormap ( sawtooth rainbow)
+## Rainbow colormap or sawtooth rainbow or hsv
 ![](./images/600.png "Rainbow gradient ( colormap)")  
 ![](./images/0.png "RGB profiles of the rainbow colormap")  
+
+
+["cyclic colormap traversing HSV color space. The map is obtained by linearly varying the hue through all possible values while keeping constant maximum saturation and value." ](https://octave.sourceforge.io/octave/function/hsv.html)
+
+```gnuplot
+set palette model HSV functions gray,1,1
+```
+
 
 Compare with [gnuplot image](https://commons.wikimedia.org/wiki/File:Gnuplot_HSV_gradient.png)  
 
 ![](./images/Gnuplot_HSV_gradient.png "RGB profiles and image of the HSV gradient made with gnuplot")  
 
-It looks similar. sawtooth-shaped lightness profile made up of 5 ramp
+It looks similar. sawtooth-shaped lightness profile made up of 5 ramps
 
 Features of rainbow gradient:
 * non monotone ( see black curve) 
@@ -390,6 +398,10 @@ ntsc = 0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b;
 
 
 # Links
+
+## colourmap test image
+* [CET Perceptually Uniform Colour Maps: The Test Image by Peter Kovesi](https://peterkovesi.com/projects/colourmaps/colourmaptestimage.html)
+* [Colormap Test Image by Steve Eddins, July 24, 2017](https://blogs.mathworks.com/steve/2017/07/24/colormap-test-image/?s_tid=blogs_rc_2)
 
 ## gnuplot
 * [gnuplot demo script: pm3dcolors.dem](http://gnuplot.sourceforge.net/demo/pm3dcolors.html)
