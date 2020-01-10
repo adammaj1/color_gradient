@@ -352,7 +352,8 @@ Names:
 
 ## How to convert data to the function ( how to fit curve to the data)?
 * Polynomial Regression 
-  * [polysolve by P. Lutus](https://arachnoid.com/polysolve/)- online tool which gives a c function as an output ( click on the output form button to cycle through the available output forms)
+  * [polysolve by Paul Lutus](https://arachnoid.com/polysolve/)- online tool which gives a c function as an output ( click on the output form button to cycle through the available output forms)
+  * [simplest_regression.py](./src/simplest_regression.py) - python program (Polynomial solver) by Paul Lutus
 
 Tools:
 * gedit : replace "," with \t 
@@ -420,6 +421,9 @@ ntsc = 0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b;
 
 ## css gradients
 * [Program do generowania gradientów w formacie Gimpa, css i Inkscape-a](https://www.obliczeniowo.com.pl/156)
+
+## Octave/matlab
+* [Origins of Colormaps Posted by Cleve Moler, February 2, 2015](https://blogs.mathworks.com/cleve/2015/02/02/origins-of-colormaps/)
 
 ## People
 * [Peter Kovesi](https://www.peterkovesi.com/)
