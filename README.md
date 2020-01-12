@@ -91,10 +91,10 @@ Features of Linas gradient:
 0.780000	 213	140	1
 ```
 
-so R jumps from 166 to 150 
+so R jumps from 166 to 150   
 
 
-I have chaged it manually :
+I have chaged it manually :  
 * only 5 points = 4 linear segments
 * last point ( position) changed to 1.00000
 
@@ -105,6 +105,32 @@ I have chaged it manually :
 0.750000	210	156	0
 1.000000	252	36	19
 ```
+
+or in the 0-1 normalized 4 columns form:  
+
+```txt
+0.000000 0.000000 0.000000 0.000000
+0.250000 0.000000 0.000000 0.458823
+0.500000 0.000000 0.686274 0.000000
+0.750000 0.823529 0.611764 0.000000
+1.000000 0.988235 0.141176 0.074509
+```
+
+which can be used by gnuplot command:   
+```gnuplot
+load "linas.pal"
+```
+and then check:  
+
+```gnuplot
+ show palette gradient
+  0. gray=0.0000, (r,g,b)=(0.0000,0.0000,0.0000), #000000 =   0   0   0
+  1. gray=0.2500, (r,g,b)=(0.0000,0.0000,0.4588), #000075 =   0   0 117
+  2. gray=0.5000, (r,g,b)=(0.0000,0.6863,0.0000), #00af00 =   0 175   0
+  3. gray=0.7500, (r,g,b)=(0.8235,0.6118,0.0000), #d29c00 = 210 156   0
+  4. gray=1.0000, (r,g,b)=(0.9882,0.1412,0.0745), #fc2413 = 252  36  19
+```
+
 
 Now one can compute: 4 functions for each color channel ( 12 functions) using [polysolve by P. Lutus](https://arachnoid.com/polysolve/).
 Result:   
@@ -363,9 +389,10 @@ Tools:
 * [cptutils by JJ Green](http://soliton.vm.bytemark.co.uk/pub/jjg/en/code/cptutils/)
   * [online](http://soliton.vm.bytemark.co.uk/pub/cptutils-online/select.html)
   * [git](https://gitlab.com/jjg/cptutils)
+* [PaletteTool by Daniel Krajzewicz](http://www.krajzewicz.de/palettetool/index.php)
 
 
-## Lightness
+# Lightness
 * [How to Determine Lightness by Reda Lemeden](https://thoughtbot.com/blog/closer-look-color-lightness#how-to-determine-lightness)
 * [stackoverflow question: formula-to-determine-brightness-of-rgb-color](https://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color)
 * desaturation = Converting color to [grayscale](https://en.wikipedia.org/wiki/Grayscale)
@@ -383,11 +410,15 @@ ntsc = 0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b;
 ```
 
 
-### Cielab lightness
+## Cielab lightness
 * RGB -> XYZ -> Celab
   * [easyrgb](http://www.easyrgb.com/en/math.php#text2)
   * in OpenCV source /src/cv/cvcolor.cpp there are functions for color space conversions: [icvBGRx2Lab_32f_CnC3R](https://github.com/cybertk/opencv/blob/master/opencv/cv/src/cvcolor.cpp)
   * [python code by Manoj Pandey](https://gist.github.com/manojpandey/f5ece715132c572c80421febebaf66ae)
+
+
+# How to create a gradient?
+* [cosine procedural palete by Inigo Quilez](http://www.iquilezles.org/www/articles/palettes/palettes.htm)
 
 # files
 ## programs
@@ -523,7 +554,7 @@ git mv  *.png ./images
 git commit -m "move"
 git push -u origin master
 ```
-then link tje image:
+then link the images:
 
 ```txt
 ![](./images/n.png "description") 
