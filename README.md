@@ -1,4 +1,6 @@
 
+[Why Should Engineers and Scientists Be Worried About Color? by Rogowitz & Treinish 1996](https://github.com/ResearchComputing/USGS_2015_06_23-25/raw/master/25_June/ColorTheory_References/Why%20Should%20Engineers%20and%20Scientists%20Be%20Worried%20About%20Color.pdf)
+
 
 What should and what should not do colormap/gradient in scientific visualisation?
 * should highlight features of the data
@@ -9,7 +11,7 @@ What should and what should not do colormap/gradient in scientific visualisation
   
 # Examples
 All images are made with:
-* c console program [p.c](./src/p.c) 
+* c console program [p.c](./src/p.c) with gradients made of functions
 * Image Magic convert console program
 * gnuplot script [plot.gp](./src/plot.gp)
 
@@ -296,6 +298,7 @@ code:
 * [(color) gradient](https://en.wikipedia.org/wiki/Color_gradient) = colormap 
 * A gradient is a set of colors arranged in a linear order
 * palette 
+* A colour map is a path through colour	space	
 
 # gradient forms
 * numbers aproximating transfer function
@@ -325,7 +328,7 @@ code:
 ## function ( 3 transfer functions) = colour map 
 
 ## image
-* stripe of colors
+* stripe of colors ( ramp)
 * diagram of the function
 * CLUT image file
   * [imagemagic](https://imagemagick.org/script/command-line-options.php#clut): image is ordinarily a gradient image containing the histogram mapping of how each channel should be modified. Typically it is a either a single row or column image of replacement color values. If larger than a single row or column, values are taken from a diagonal line from top-left to bottom-right corners.
@@ -373,10 +376,10 @@ Taxonomy of Colour Maps according to the lightness:
 Names:   
 * [Perceptually Uniform Colour Maps](https://peterkovesi.com/projects/colourmaps/) = uniform perceptual contrast over their whole range
 * [perceptual colormap](https://github.com/mycarta/rainbowbot) = ordered, strictly monotonic lightness
-  * [How to evaluate and compare colormaps by Matteo Niccoli, MyCarta](https://github.com/seg/tutorials-2014/blob/master/1408_Evaluate_and_compare_colormaps/How_to_evaluate_and_compare_colormaps.ipynb)
+  * [cubehelix](https://ifweassume.blogspot.com/2013/05/cubehelix-or-how-i-learned-to-love.html)
 * [qualitative, sequential, and diverging](http://colorspace.r-forge.r-project.org/articles/hcl_palettes.html#qualitative-palettes)
 * [A good discrete palette has distinct colors. A good continuous colormap does not show boundaries between colors.](https://cran.r-project.org/web/packages/pals/vignettes/pals_examples.html)
-
+* [ Categorical data can also be represented as numbers, but each number is then distinct, with the numerical value important only to distinguish from other values. When categorical data is plotted as colors, each category should have a color visibly distinct from all the other colors, not nearby in color space, to make each category separately visible.](https://colorcet.holoviz.org/user_guide/Categorical.html)
 
 # Conversion between gradient types
 
@@ -398,8 +401,13 @@ Tools:
 
 
 # How to create a gradient?
+## continous
 * [cosine procedural palete by Inigo Quilez](http://www.iquilezles.org/www/articles/palettes/palettes.htm)
-
+* [The Colour Map Design Process by Peter Kovesi](https://peterkovesi.com/papers/ColourMapsForColourBlindIAMG2017.pdf)
+* [Good Colour Maps: How to Design Them by Peter Kovesi](https://arxiv.org/pdf/1509.03700v1.pdf)
+* [Good Colour Maps: How to Design Them by Peter Kovesi](https://www.groundai.com/project/good-colour-maps-how-to-design-them/1)
+## discrete
+* [Colour displays for categorical images by  Glasbey et al. (2007)](https://strathprints.strath.ac.uk/30312/1/colorpaper_2006.pdf)
 
 # Lightness
 * [How to Determine Lightness by Reda Lemeden](https://thoughtbot.com/blog/closer-look-color-lightness#how-to-determine-lightness)
@@ -440,10 +448,18 @@ ntsc = 0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b;
 ## colourmap tests
 * tests
   * [pal.test from the ‘pals’ package by Kevin Wright](https://cran.r-project.org/web/packages/pals/vignettes/pals_examples.html)
+  * [colormap inxpections from ethplot](https://github.com/liamedeiros/ehtplot/blob/docs/docs/COLORMAPS.ipynb)
+  * [How to evaluate and compare colormaps by Matteo Niccoli, MyCarta](https://github.com/seg/tutorials-2014/blob/master/1408_Evaluate_and_compare_colormaps/How_to_evaluate_and_compare_colormaps.ipynb)
+  
 * test image
-  * [CET Perceptually Uniform Colour Maps: The Test Image by Peter Kovesi](https://peterkovesi.com/projects/colourmaps/colourmaptestimage.html)
+  * [CET Perceptually Uniform Colour Maps: The Test Image by Peter Kovesi:A sine wave superimposed on a ramp](https://peterkovesi.com/projects/colourmaps/colourmaptestimage.html)
   * [Colormap Test Image by Steve Eddins, July 24, 2017](https://blogs.mathworks.com/steve/2017/07/24/colormap-test-image/?s_tid=blogs_rc_2)
   * [ Campbell-Robson Contrast Sensitivity Chart](https://kwstat.github.io/pals/articles/pals_examples.html)
+  * [pals test image](https://kwstat.github.io/pals/)
+* 3D plot
+  * [a three-dimensional scatterplot in the LUV space](https://kwstat.github.io/pals/articles/pals_examples.html)
+  * [3-D visualisation (made with Maple) of how the colour scheme spirals around the diagonal of the colour cube](http://www.mrao.cam.ac.uk/~dag/CUBEHELIX/#Other)
+  * [display the colorbar in Lab space in a 3D view](https://mycarta.wordpress.com/2012/12/21/comparing-color-palettes/)
 ## gnuplot
 * [gnuplot demo script: pm3dcolors.dem](http://gnuplot.sourceforge.net/demo/pm3dcolors.html)
 * [gnuplot palletes](https://github.com/Gnuplotting/gnuplot-palettes)
@@ -469,6 +485,7 @@ ntsc = 0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b;
 ## R
 * [pals by Kevin Wright](https://kwstat.github.io/pals/)
 * [cetcolor by James Balamuta and Peter Kovesi](https://github.com/coatless/cetcolor)
+* [r-color-palettes](https://github.com/EmilHvitfeldt/r-color-palettes)
 
 ## People
 * [Peter Kovesi](https://www.peterkovesi.com/)
@@ -480,6 +497,7 @@ ntsc = 0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b;
   * [Diverging Color Maps for Scientific Visualization](http://www.kennethmoreland.com/color-maps/)
 * [Colin Ware](https://ccom.unh.edu/vislab/colin_ware.html)
 * [Fabio Crameri](http://www.fabiocrameri.ch/colourmaps.php)
+* [Dave Green](http://www.mrao.cam.ac.uk/~dag/CUBEHELIX/#Other)
 ## www
 * [khan academy:  color science by Pixar](https://www.khanacademy.org/partner-content/pixar/color)
 
