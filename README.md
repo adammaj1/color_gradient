@@ -334,6 +334,9 @@ code:
   * [darktable](https://www.darktable.org/2019/05/New%20module-lut3d/)
 
 # Features of colormaps:
+* discrete/continous
+* dimension: 1D / 2D
+  * mesh gradeint
 * number of the gradient segments
 * direction ( increasing/decreasing)
 * monotonicy of the lightness 
@@ -372,6 +375,7 @@ Names:
 * [perceptual colormap](https://github.com/mycarta/rainbowbot) = ordered, strictly monotonic lightness
   * [How to evaluate and compare colormaps by Matteo Niccoli, MyCarta](https://github.com/seg/tutorials-2014/blob/master/1408_Evaluate_and_compare_colormaps/How_to_evaluate_and_compare_colormaps.ipynb)
 * [qualitative, sequential, and diverging](http://colorspace.r-forge.r-project.org/articles/hcl_palettes.html#qualitative-palettes)
+* [A good discrete palette has distinct colors. A good continuous colormap does not show boundaries between colors.](https://cran.r-project.org/web/packages/pals/vignettes/pals_examples.html)
 
 
 # Conversion between gradient types
@@ -390,6 +394,11 @@ Tools:
   * [online](http://soliton.vm.bytemark.co.uk/pub/cptutils-online/select.html)
   * [git](https://gitlab.com/jjg/cptutils)
 * [PaletteTool by Daniel Krajzewicz](http://www.krajzewicz.de/palettetool/index.php)
+
+
+
+# How to create a gradient?
+* [cosine procedural palete by Inigo Quilez](http://www.iquilezles.org/www/articles/palettes/palettes.htm)
 
 
 # Lightness
@@ -417,9 +426,6 @@ ntsc = 0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b;
   * [python code by Manoj Pandey](https://gist.github.com/manojpandey/f5ece715132c572c80421febebaf66ae)
 
 
-# How to create a gradient?
-* [cosine procedural palete by Inigo Quilez](http://www.iquilezles.org/www/articles/palettes/palettes.htm)
-
 # files
 ## programs
 * [p.c](./src/p.c) - c program which creates 60n.png files and n.txt files 
@@ -431,10 +437,13 @@ ntsc = 0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b;
 
 # Links
 
-## colourmap test image
-* [CET Perceptually Uniform Colour Maps: The Test Image by Peter Kovesi](https://peterkovesi.com/projects/colourmaps/colourmaptestimage.html)
-* [Colormap Test Image by Steve Eddins, July 24, 2017](https://blogs.mathworks.com/steve/2017/07/24/colormap-test-image/?s_tid=blogs_rc_2)
-
+## colourmap tests
+* tests
+  * [pal.test from the ‘pals’ package by Kevin Wright](https://cran.r-project.org/web/packages/pals/vignettes/pals_examples.html)
+* test image
+  * [CET Perceptually Uniform Colour Maps: The Test Image by Peter Kovesi](https://peterkovesi.com/projects/colourmaps/colourmaptestimage.html)
+  * [Colormap Test Image by Steve Eddins, July 24, 2017](https://blogs.mathworks.com/steve/2017/07/24/colormap-test-image/?s_tid=blogs_rc_2)
+  * [ Campbell-Robson Contrast Sensitivity Chart](https://kwstat.github.io/pals/articles/pals_examples.html)
 ## gnuplot
 * [gnuplot demo script: pm3dcolors.dem](http://gnuplot.sourceforge.net/demo/pm3dcolors.html)
 * [gnuplot palletes](https://github.com/Gnuplotting/gnuplot-palettes)
@@ -455,6 +464,11 @@ ntsc = 0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b;
 
 ## Octave/matlab
 * [Origins of Colormaps Posted by Cleve Moler, February 2, 2015](https://blogs.mathworks.com/cleve/2015/02/02/origins-of-colormaps/)
+
+
+## R
+* [pals by Kevin Wright](https://kwstat.github.io/pals/)
+* [cetcolor by James Balamuta and Peter Kovesi](https://github.com/coatless/cetcolor)
 
 ## People
 * [Peter Kovesi](https://www.peterkovesi.com/)
