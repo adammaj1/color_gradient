@@ -8,15 +8,20 @@ What should and what should not do colormap/gradient in scientific visualisation
   * ["Many colour maps provided by vendors have highly uneven perceptual contrast over their range. Colour maps may have points of locally high colour contrast leading to the perception of false anomalies in your data when there is none. Conversely colour maps may also have 'flat spots' of low perceptual contrast that prevent you from seeing features in the data." Peter Kovesi](https://peterkovesi.com/projects/colourmaps/)
   * ["... obfuscate the data with artifacts that are not in the data and hide important features that are in the data" Kenneth Moreland](http://www.kennethmoreland.com/color-advice/BadColorMaps.pdf) 
 
+
+TOC
+* [Examples of continous colour maps/gradients]()
+
+
   
-# Examples
-All images are made with:
+# Examples of continous colour maps/gradients
+All my images here are made with:
 * c console program [p.c](./src/p.c) with gradients made of functions
 * Image Magic convert console program
 * gnuplot script [plot.gp](./src/plot.gp)
 
 
-Numbers from function GiveColor from [p.c](./src/p.c) and array titles from [plot.gp](./src/plot.gp)
+Numbers (see function GiveColor from [p.c](./src/p.c) and array titles from [plot.gp](./src/plot.gp) ):
 * 0 = Rainbow 
 * 1 = Linas
 * 2 = Magma 
@@ -292,13 +297,17 @@ code:
 * [diverging_map_gnuplot.pal](diverging_map_gnuplot.pal) - gnuplot palette file
 
 
+## Bent Cool Warm ( diverging )
 
+Description by [Kenneth Moreland ](http://www.kennethmoreland.com/color-advice/)  
+* This is a similar color map to the previous except that the luminance is interpolated linearly with a sharp bend in the middle. This makes for less washed out colors in the middle, but also creates an artifact at the midpoint.
+* "I ... define it with only 3 colors. ... I made the middle point a little less bright (to avoid problems with colors at the edge of what can physically be displayed). ""
 
 # Notation
 * [(color) gradient](https://en.wikipedia.org/wiki/Color_gradient) = colormap 
 * A gradient is a set of colors arranged in a linear order
 * palette 
-* A colour map is a path through colour	space	
+* A colour map is [a path](https://en.wikipedia.org/wiki/Path_(topology)) through [colour space](https://en.wikipedia.org/wiki/Color_space)  
 
 # gradient forms
 * numbers aproximating transfer function
@@ -340,10 +349,10 @@ code:
 * discrete/continous
 * dimension: 1D / 2D
   * mesh gradient ( 2D used in SVG)
-* number of the gradient segments
-* direction ( increasing/decreasing)
-* monotonicy of the lightness 
-* cyclic / non-cyclic
+* number of the gradient segments ( ramps)
+  * cyclic / non-cyclic
+* [monotonicy](https://en.wikipedia.org/wiki/Monotonic_function) of the [lightness]()
+  * direction:  increasing/decreasing/constant
 * precision
   * type and a range of the numbers:  unsigned char and [0 ; 255] or  double and [0.0 ; 1.0 ]
   * length of the numbers array ( proportional to precision of nonlinear function approximation. for linear function 2 points are enough)
@@ -359,7 +368,7 @@ code:
 
 
 Taxonomy of contious colour maps according to the lightness:
-* [monotone ( monotonic)](https://en.wikipedia.org/wiki/Monotonic_function) with monotonic brightness = strictly monotonic lightness
+* [monotone ( monotonic)](https://en.wikipedia.org/wiki/Monotonic_function) with monotonic brightness (lightness)
   * linear  = have colour lightness values that increase or decrease linearly over the colour map's range. Are intended for general use and have colour lightness values that increase or decrease linearly over the colour map's range
   * nonlinear
 * isoluminant:  constant lightness and low contrast colour maps can be useful when displaying data with [relief shading](https://en.wikipedia.org/wiki/Terrain_cartography#Shaded_relief)
@@ -401,6 +410,7 @@ Tools:
 
 # How to create a gradient?
 ## continous
+* "interpolate colors in a perceptually designed space (such as CIELAB or one of its derivatives like CIELch) rather than in basic RGB space" [Kenneth Moreland](http://www.kennethmoreland.com/index.html)
 * [The Colour Map Design Process by Peter Kovesi](https://peterkovesi.com/papers/ColourMapsForColourBlindIAMG2017.pdf)
 * [Good Colour Maps: How to Design Them by Peter Kovesi ( arxiv)](https://arxiv.org/pdf/1509.03700v1.pdf)
 * [Good Colour Maps: How to Design Them by Peter Kovesi (page)](https://www.groundai.com/project/good-colour-maps-how-to-design-them/1)
