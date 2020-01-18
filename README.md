@@ -339,16 +339,15 @@ code:
 # Features of colormaps:
 * discrete/continous
 * dimension: 1D / 2D
-  * mesh gradeint
+  * mesh gradient ( 2D used in SVG)
 * number of the gradient segments
 * direction ( increasing/decreasing)
 * monotonicy of the lightness 
-* function of color channel and the gradient segment: linear / nonlinear ( related what function is used for the interpolation between nodes)
 * cyclic / non-cyclic
-* type and a range of the numbers: 
-  * unsigned char and [0 ; 255]
-  * double and [0.0 ; 1.0 ]
-* length of the numbers array ( proportional to precision of nonlinear function approximation. for linear function 2 points are enough)
+* precision
+  * type and a range of the numbers:  unsigned char and [0 ; 255] or  double and [0.0 ; 1.0 ]
+  * length of the numbers array ( proportional to precision of nonlinear function approximation. for linear function 2 points are enough)
+  * function of color channel and the gradient segment: linear / nonlinear ( related what function is used for the interpolation between nodes)
 * perceptual uniformity means that all pairs of adjacent colors will look equally different from each other 
 * [Colour-vision-deficiency (CVD) friendly](http://www.fabiocrameri.ch/resources/%2BREADME_ScientificColourmaps.pdf)
 
@@ -359,7 +358,7 @@ code:
 [Taxonomy of Colour Maps by Peter Kovesi](http://arxiv.org/abs/1509.03700)
 
 
-Taxonomy of Colour Maps according to the lightness:
+Taxonomy of contious colour maps according to the lightness:
 * [monotone ( monotonic)](https://en.wikipedia.org/wiki/Monotonic_function) with monotonic brightness = strictly monotonic lightness
   * linear  = have colour lightness values that increase or decrease linearly over the colour map's range. Are intended for general use and have colour lightness values that increase or decrease linearly over the colour map's range
   * nonlinear
@@ -402,10 +401,11 @@ Tools:
 
 # How to create a gradient?
 ## continous
-* [cosine procedural palete by Inigo Quilez](http://www.iquilezles.org/www/articles/palettes/palettes.htm)
 * [The Colour Map Design Process by Peter Kovesi](https://peterkovesi.com/papers/ColourMapsForColourBlindIAMG2017.pdf)
-* [Good Colour Maps: How to Design Them by Peter Kovesi](https://arxiv.org/pdf/1509.03700v1.pdf)
-* [Good Colour Maps: How to Design Them by Peter Kovesi](https://www.groundai.com/project/good-colour-maps-how-to-design-them/1)
+* [Good Colour Maps: How to Design Them by Peter Kovesi ( arxiv)](https://arxiv.org/pdf/1509.03700v1.pdf)
+* [Good Colour Maps: How to Design Them by Peter Kovesi (page)](https://www.groundai.com/project/good-colour-maps-how-to-design-them/1)
+* [cosine procedural palete by Inigo Quilez](http://www.iquilezles.org/www/articles/palettes/palettes.htm): "Mine cosine based palette generator is mostly designed for small demos where the size of the code matters, but otherwise it's not very powerful nor expressive."
+
 ## discrete
 * [Colour displays for categorical images by  Glasbey et al. (2007)](https://strathprints.strath.ac.uk/30312/1/colorpaper_2006.pdf)
 
